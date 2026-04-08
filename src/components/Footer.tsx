@@ -49,15 +49,15 @@ const Footer = () => (
           <ul className="space-y-3 text-sm opacity-70">
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 flex-shrink-0" />
-              info@primeyouths.org
+              info@primeyouthsinitiative.org
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 flex-shrink-0" />
-              +234 800 000 0000
+              +234 XXX XXX XXXX
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-              Lagos, Nigeria
+              Makurdi, Benue State, Nigeria
             </li>
           </ul>
         </div>

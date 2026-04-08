@@ -48,9 +48,9 @@ const Contact = () => {
 
               <div className="space-y-6">
                 {[
-                  { icon: <Mail className="w-5 h-5" />, label: "Email", value: "info@primeyouths.org" },
-                  { icon: <Phone className="w-5 h-5" />, label: "Phone", value: "+234 800 000 0000" },
-                  { icon: <MapPin className="w-5 h-5" />, label: "Location", value: "Lagos, Nigeria" },
+                  { icon: <Mail className="w-5 h-5" />, label: "Email", value: "info@primeyouthsinitiative.org" },
+                  { icon: <Phone className="w-5 h-5" />, label: "Phone", value: "+234 XXX XXX XXXX" },
+                  { icon: <MapPin className="w-5 h-5" />, label: "Location", value: "Makurdi, Benue State, Nigeria" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary flex-shrink-0">

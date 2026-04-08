@@ -4,12 +4,11 @@ import { Target, Eye, Users, Award, Calendar } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const milestones = [
-  { year: "2018", title: "Founded", description: "Prime Youths & Women Empowerment Initiative was born from a vision to transform communities." },
-  { year: "2019", title: "First Youth Summit", description: "Organized our inaugural youth leadership summit with 150 attendees." },
-  { year: "2020", title: "Women's Program Launch", description: "Launched vocational training programs for women during challenging times." },
-  { year: "2021", title: "Education Initiative", description: "Distributed school supplies and scholarships to 500+ students." },
-  { year: "2022", title: "Health Outreach", description: "Partnered with healthcare providers for community health campaigns." },
-  { year: "2023", title: "5,000+ Lives Impacted", description: "Reached a major milestone of empowering over 5,000 individuals." },
+  { year: "2020", title: "Founded in Makurdi", description: "Prime Youths and Women Empowerment Initiative was established in Makurdi, Benue State, with a vision to transform communities." },
+  { year: "2021", title: "First Community Outreach", description: "Organized our first community outreach program in Makurdi, reaching over 100 beneficiaries." },
+  { year: "2022", title: "Women's Program Launch", description: "Launched vocational training programs for women in Benue State during challenging times." },
+  { year: "2023", title: "Education & Health Drives", description: "Distributed school supplies, scholarships, and partnered with healthcare providers for community health campaigns." },
+  { year: "2024", title: "Growing Impact", description: "Expanded programs across Benue State, empowering thousands of youths and women." },
 ];
 
 const team = [
