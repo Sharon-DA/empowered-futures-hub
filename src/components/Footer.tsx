@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heart, Mail, Phone, MapPin } from "lucide-react";
+import { Heart, Mail, Phone, MapPin, Facebook } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-foreground text-background">
@@ -58,6 +58,12 @@ const Footer = () => (
             <li className="flex items-start gap-2">
               <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
               Makurdi, Benue State, Nigeria
+            </li>
+            <li className="flex items-center gap-2">
+              <Facebook className="w-4 h-4 flex-shrink-0" />
+              <a href="https://www.facebook.com/share/16gg2zCBWo/" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity">
+                Follow us on Facebook
+              </a>
             </li>
           </ul>
         </div>
