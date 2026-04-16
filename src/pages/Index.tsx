@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Users, GraduationCap, Heart, HandHelping, ArrowRight, Quote } from "lucide-react";
+import { Users, GraduationCap, Heart, HandHelping, ArrowRight, Quote, Loader2 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import Counter from "@/components/ImpactCounter";
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
 import heroBg from "@/assets/hero-bg.jpg";
 import programYouth from "@/assets/program-youth.jpg";
 import programWomen from "@/assets/program-women.jpg";
@@ -23,19 +25,30 @@ const testimonials = [
   { name: "Fatima K.", role: "Women's Program Graduate", quote: "I never imagined I could start my own business. The financial literacy program gave me the confidence and tools I needed." },
 ];
 
-const news = [
-  { title: "2024 Annual Youth Summit Recap", date: "March 15, 2024", excerpt: "Over 500 young leaders gathered for our biggest summit yet, featuring workshops, panels, and networking opportunities.", image: programYouth },
-  { title: "Women's Skill Workshop Graduation", date: "February 28, 2024", excerpt: "30 women graduated from our 6-month vocational training program, ready to launch their own businesses.", image: programWomen },
-  { title: "Community Health Drive Success", date: "January 20, 2024", excerpt: "Our latest health awareness campaign reached over 1,000 community members with free screenings and wellness education.", image: programHealth },
-];
-
 const Index = () => {
+  const [settings, setSettings] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSettings = async () => {
+      const { data } = await supabase.from('site_settings').select('*').eq('id', 1).single();
+      if (data) setSettings(data);
+      setLoading(false);
+    };
+    fetchSettings();
+  }, []);
+
+  const heroTitle = settings?.hero_title || "Empowering Youths & Women for a Brighter Future";
+  const heroSubtitle = settings?.hero_subtitle || "We invest in education, skills, and community to help youths and women build the future they deserve.";
+  const heroImage = settings?.hero_image_url || heroBg;
+  const stats = settings?.impact_stats || { empowered: 5000, programs: 50, volunteers: 200, donations: 1000 };
+
   return (
     <div>
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroBg} alt="Youths learning together in a classroom" className="w-full h-full object-cover" width={1920} height={1080} />
+          <img src={heroImage} alt="Hero" className="w-full h-full object-cover" width={1920} height={1080} />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         </div>
         <div className="relative container mx-auto px-4 py-32 text-center md:text-left md:max-w-3xl md:mr-auto">
@@ -44,10 +57,10 @@ const Index = () => {
               🌍 Making a Difference Together
             </span>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background leading-tight mb-6">
-              Empowering Youths & Women for a Brighter Future
+              {heroTitle}
             </h1>
             <p className="text-background/80 text-lg md:text-xl max-w-xl mb-8 leading-relaxed">
-              We invest in education, skills, and community to help youths and women build the future they deserve.
+              {heroSubtitle}
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <Link to="/donate">
@@ -75,10 +88,10 @@ const Index = () => {
         <div className="container mx-auto">
           <SectionHeading label="Our Impact" title="Changing Lives, One Step at a Time" />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <Counter end={5000} suffix="+" label="People Empowered" icon={<Users className="w-7 h-7" />} />
-            <Counter end={50} suffix="+" label="Programs Completed" icon={<GraduationCap className="w-7 h-7" />} />
-            <Counter end={200} suffix="+" label="Active Volunteers" icon={<HandHelping className="w-7 h-7" />} />
-            <Counter end={1000} suffix="+" label="Donations Received" icon={<Heart className="w-7 h-7" />} />
+            <Counter end={stats.empowered} suffix="+" label="People Empowered" icon={<Users className="w-7 h-7" />} />
+            <Counter end={stats.programs} suffix="+" label="Programs Completed" icon={<GraduationCap className="w-7 h-7" />} />
+            <Counter end={stats.volunteers} suffix="+" label="Active Volunteers" icon={<HandHelping className="w-7 h-7" />} />
+            <Counter end={stats.donations} suffix="+" label="Donations Received" icon={<Heart className="w-7 h-7" />} />
           </div>
         </div>
       </section>
@@ -139,34 +152,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Latest News */}
-      <section className="section-padding">
-        <div className="container mx-auto">
-          <SectionHeading label="Stay Updated" title="Latest News & Updates" />
-          <div className="grid md:grid-cols-3 gap-8">
-            {news.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border group"
-              >
-                <div className="h-48 overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width={800} height={600} />
-                </div>
-                <div className="p-6">
-                  <span className="text-xs text-secondary font-semibold">{item.date}</span>
-                  <h3 className="font-heading text-lg font-bold text-foreground mt-1 mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{item.excerpt}</p>
-                  <Link to="/news" className="text-primary font-semibold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
-                    Read More <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      {/* Latest News (Simplified) */}
+      <section className="section-padding bg-card">
+        <div className="container mx-auto text-center">
+          <SectionHeading label="Stay Updated" title="Latest News & Achievements" />
+          <p className="mb-10 text-muted-foreground">Check out our latest news posts and stories of impact.</p>
+          <Link to="/news">
+            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-semibold">
+              View All News <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -200,3 +195,4 @@ const Index = () => {
 };
 
 export default Index;
+

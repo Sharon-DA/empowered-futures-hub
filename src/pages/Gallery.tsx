@@ -1,30 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
-import { X } from "lucide-react";
+import { X, Loader2 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
+import heroBg from "@/assets/hero-bg.jpg";
 import programYouth from "@/assets/program-youth.jpg";
 import programWomen from "@/assets/program-women.jpg";
 import programHealth from "@/assets/program-health.jpg";
 import programEducation from "@/assets/program-education.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const categories = ["All", "Programs", "Events", "Workshops"];
-
-const galleryItems = [
-  { src: heroBg, alt: "Youth summit event", category: "Events" },
-  { src: programYouth, alt: "Youth digital skills training", category: "Programs" },
-  { src: programWomen, alt: "Women vocational training", category: "Workshops" },
-  { src: programEducation, alt: "Education support program", category: "Programs" },
-  { src: programHealth, alt: "Community health outreach", category: "Events" },
-  { src: programWomen, alt: "Women empowerment workshop", category: "Workshops" },
-  { src: heroBg, alt: "Community engagement event", category: "Events" },
-  { src: programYouth, alt: "Youth leadership workshop", category: "Workshops" },
-  { src: programEducation, alt: "Scholarship ceremony", category: "Programs" },
-];
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [galleryItems, setGalleryItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchGallery = async () => {
+      setLoading(true);
+      const { data, error } = await supabase.from('gallery').select('*').order('created_at', { ascending: false });
+      if (!error && data && data.length > 0) {
+        setGalleryItems(data);
+      } else {
+        // Fallback
+        setGalleryItems([
+          { image_url: heroBg, title: "Youth summit event", category: "Events" },
+          { image_url: programYouth, title: "Youth digital skills training", category: "Programs" },
+          { image_url: programWomen, title: "Women vocational training", category: "Workshops" },
+          { image_url: programEducation, title: "Education support program", category: "Programs" },
+        ]);
+      }
+      setLoading(false);
+    };
+    fetchGallery();
+  }, []);
 
   const filtered = activeCategory === "All" ? galleryItems : galleryItems.filter((g) => g.category === activeCategory);
 
@@ -43,7 +54,7 @@ const Gallery = () => {
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="section-padding min-h-[500px]">
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map((cat) => (
@@ -61,21 +72,27 @@ const Gallery = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {filtered.map((item, i) => (
-              <motion.div
-                key={`${item.alt}-${i}`}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                onClick={() => setLightboxImage(item.src)}
-                className="cursor-pointer rounded-xl overflow-hidden group aspect-[4/3]"
-              >
-                <img src={item.src} alt={item.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" width={800} height={600} />
-              </motion.div>
-            ))}
-          </div>
+          {loading ? (
+             <div className="flex justify-center py-20">
+              <Loader2 className="w-10 h-10 animate-spin text-primary" />
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {filtered.map((item, i) => (
+                <motion.div
+                  key={`${item.title}-${i}`}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  onClick={() => setLightboxImage(item.image_url)}
+                  className="cursor-pointer rounded-xl overflow-hidden group aspect-[4/3]"
+                >
+                  <img src={item.image_url} alt={item.title} title={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" width={800} height={600} />
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -106,3 +123,4 @@ const Gallery = () => {
 };
 
 export default Gallery;
+

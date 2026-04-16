@@ -29,6 +29,11 @@ const Footer = () => (
                 </Link>
               </li>
             ))}
+            <li className="pt-2">
+              <Link to="/admin/login" className="text-secondary hover:underline transition-all">
+                Staff Login
+              </Link>
+            </li>
           </ul>
         </div>
 

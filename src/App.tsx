@@ -17,6 +17,8 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminNews from "./pages/admin/AdminNews";
 import AdminGallery from "./pages/admin/AdminGallery";
 import AdminPrograms from "./pages/admin/AdminPrograms";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -37,10 +39,12 @@ const App = () => (
           <Route element={<Layout><Contact /></Layout>} path="/contact" />
 
           {/* Admin routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminLayout><AdminDashboard /></AdminLayout>} />
           <Route path="/admin/news" element={<AdminLayout><AdminNews /></AdminLayout>} />
           <Route path="/admin/gallery" element={<AdminLayout><AdminGallery /></AdminLayout>} />
           <Route path="/admin/programs" element={<AdminLayout><AdminPrograms /></AdminLayout>} />
+          <Route path="/admin/settings" element={<AdminLayout><AdminSettings /></AdminLayout>} />
 
           <Route path="*" element={<Layout><NotFound /></Layout>} />
         </Routes>
