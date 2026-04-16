@@ -48,9 +48,9 @@ const Contact = () => {
 
               <div className="space-y-6">
                 {[
-                  { icon: <Mail className="w-5 h-5" />, label: "Email", value: "info@primeyouthsinitiative.org" },
-                  { icon: <Phone className="w-5 h-5" />, label: "Phone", value: "+234 XXX XXX XXXX" },
-                  { icon: <MapPin className="w-5 h-5" />, label: "Location", value: "Makurdi, Benue State, Nigeria" },
+                  { icon: <Mail className="w-5 h-5" />, label: "Email", value: "primeyouthinitiative22@gmail.com" },
+                  { icon: <Phone className="w-5 h-5" />, label: "Phone", value: "0705 368 9152 / 0703 391 6169" },
+                  { icon: <MapPin className="w-5 h-5" />, label: "Location", value: "C5 Unique Plaza, Modern Market Junction, Makurdi, Benue State" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary flex-shrink-0">
