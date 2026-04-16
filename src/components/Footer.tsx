@@ -8,7 +8,7 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <img src={logo} alt="Prime Youths Logo" className="w-10 h-10 rounded-full object-cover" />
+            <img src={logo} alt="Prime Youths Logo" className="w-12 h-12 rounded-full object-cover" />
             <div className="leading-tight">
               <span className="font-heading text-lg font-bold">Prime Youths</span>
               <span className="block text-xs opacity-70 -mt-0.5">& Women Empowerment</span>
