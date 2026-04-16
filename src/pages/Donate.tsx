@@ -104,7 +104,7 @@ const Donate = () => (
           <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto mb-8">
             Your support makes our programs possible. Together, we can empower more youths and women to build brighter futures.
           </p>
-          <a href="mailto:info@primeyouthsinitiative.org">
+          <a href="mailto:primeyouthinitiative22@gmail.com">
             <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-8 h-12">
               Contact Us for More Info
             </Button>
