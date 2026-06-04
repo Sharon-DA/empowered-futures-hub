@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Facebook } from "lucide-react";
+import { Menu, X, Facebook, Instagram, Linkedin } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -49,6 +49,12 @@ const Navbar = () => {
           <a href="https://www.facebook.com/share/16gg2zCBWo/" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
             <Facebook className="w-5 h-5" />
           </a>
+          <a href="https://www.instagram.com/pywei_?igsh=NTJuM2R2bWE4bnlo" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
+            <Instagram className="w-5 h-5" />
+          </a>
+          <a href="https://ng.linkedin.com/in/prime-youths-and-women-empowerment-initiative-initiative-839897360" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
+            <Linkedin className="w-5 h-5" />
+          </a>
           <Link to="/donate">
             <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
               Donate Now
@@ -92,6 +98,17 @@ const Navbar = () => {
                   Donate Now
                 </Button>
               </Link>
+              <div className="flex items-center justify-center gap-4 pt-4 border-t border-border mt-4">
+                <a href="https://www.facebook.com/share/16gg2zCBWo/" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="https://www.instagram.com/pywei_?igsh=NTJuM2R2bWE4bnlo" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="https://ng.linkedin.com/in/prime-youths-and-women-empowerment-initiative-initiative-839897360" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

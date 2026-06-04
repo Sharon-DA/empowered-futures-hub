@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => (
@@ -67,6 +67,18 @@ const Footer = () => (
               <Facebook className="w-4 h-4 flex-shrink-0" />
               <a href="https://www.facebook.com/share/16gg2zCBWo/" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity">
                 Follow us on Facebook
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Instagram className="w-4 h-4 flex-shrink-0" />
+              <a href="https://www.instagram.com/pywei_?igsh=NTJuM2R2bWE4bnlo" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity">
+                Follow us on Instagram
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Linkedin className="w-4 h-4 flex-shrink-0" />
+              <a href="https://ng.linkedin.com/in/prime-youths-and-women-empowerment-initiative-initiative-839897360" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity">
+                Follow us on LinkedIn
               </a>
             </li>
           </ul>
