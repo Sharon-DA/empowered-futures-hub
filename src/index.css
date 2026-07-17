@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto+Slab:wght@400;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,35 +6,38 @@
 
 @layer base {
   :root {
-    --background: 40 33% 98%;
-    --foreground: 150 30% 10%;
+    /* Base */
+    --background: 60 20% 98%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 150 30% 10%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 150 30% 10%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 145 63% 32%;
+    /* PYWEI Primary Green: #2E8B00 → hsl(99, 100%, 27%) */
+    --primary: 99 100% 27%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 95% 55%;
+    /* PYWEI Secondary Orange: #F47920 → hsl(26, 90%, 54%) */
+    --secondary: 26 90% 54%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 40 20% 94%;
-    --muted-foreground: 150 10% 40%;
+    --muted: 100 15% 94%;
+    --muted-foreground: 100 8% 42%;
 
-    --accent: 145 40% 92%;
-    --accent-foreground: 145 63% 25%;
+    --accent: 99 60% 92%;
+    --accent-foreground: 99 100% 22%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 40 15% 88%;
-    --input: 40 15% 88%;
-    --ring: 145 63% 32%;
+    --border: 100 10% 88%;
+    --input: 100 10% 88%;
+    --ring: 99 100% 27%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -45,32 +48,32 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --warm: 40 33% 98%;
-    --warm-dark: 40 20% 94%;
-    --green-light: 145 40% 92%;
-    --orange-light: 30 100% 95%;
+    --warm: 60 20% 98%;
+    --warm-dark: 100 15% 94%;
+    --green-light: 99 60% 92%;
+    --orange-light: 26 100% 95%;
   }
 
   .dark {
-    --background: 150 30% 6%;
-    --foreground: 40 33% 95%;
-    --card: 150 25% 10%;
-    --card-foreground: 40 33% 95%;
-    --popover: 150 25% 10%;
-    --popover-foreground: 40 33% 95%;
-    --primary: 145 63% 42%;
+    --background: 0 0% 7%;
+    --foreground: 60 20% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 60 20% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 60 20% 95%;
+    --primary: 99 100% 38%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 30 95% 55%;
+    --secondary: 26 90% 54%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 150 15% 15%;
-    --muted-foreground: 40 15% 65%;
-    --accent: 145 30% 18%;
-    --accent-foreground: 145 40% 85%;
+    --muted: 100 10% 15%;
+    --muted-foreground: 100 8% 65%;
+    --accent: 99 30% 18%;
+    --accent-foreground: 99 60% 85%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 150 15% 18%;
-    --input: 150 15% 18%;
-    --ring: 145 63% 42%;
+    --border: 100 10% 18%;
+    --input: 100 10% 18%;
+    --ring: 99 100% 38%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -86,11 +89,16 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', system-ui, sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    font-family: 'Roboto Slab', Georgia, serif;
+    @apply font-bold tracking-tight;
   }
 }
 
@@ -100,5 +108,8 @@
   }
   .section-padding {
     @apply py-16 md:py-24 px-4;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
   }
 }

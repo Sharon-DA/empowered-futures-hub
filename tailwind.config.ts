@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Playfair Display", "Georgia", "serif"],
+        heading: ["Roboto Slab", "Georgia", "serif"],
         body: ["Poppins", "system-ui", "sans-serif"],
       },
       colors: {

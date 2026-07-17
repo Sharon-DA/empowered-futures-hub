@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Menu, X, Facebook, Instagram, Linkedin, Heart } from "lucide-react";
 import logo from "@/assets/logo.png";
-import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -16,96 +15,124 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
-      <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Prime Youths Logo" className="w-14 h-14 rounded-full object-cover" />
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+          ? "bg-white shadow-md border-b border-gray-100"
+          : "bg-white/95 backdrop-blur-sm border-b border-gray-100"
+        }`}
+    >
+
+      {/* Main nav */}
+      <div className="container mx-auto px-4 flex items-center justify-between h-[72px]">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-3 flex-shrink-0">
+          <img src={logo} alt="PYWEI Logo" className="w-12 h-12 object-contain" />
           <div className="leading-tight">
-            <span className="font-heading text-lg font-bold text-foreground">Prime Youths</span>
-            <span className="block text-xs text-muted-foreground font-medium -mt-0.5">& Women Empowerment</span>
+            <span
+              className="block font-bold text-[#111111] text-base"
+              style={{ fontFamily: "'Roboto Slab', serif" }}
+            >
+              Prime Youths &amp; Women
+            </span>
+            <span className="block text-xs text-[#2E8B00] font-semibold tracking-wide uppercase">
+              Empowerment Initiative
+            </span>
           </div>
         </Link>
 
-        <div className="hidden lg:flex items-center gap-1">
+        {/* Desktop nav links */}
+        <div className="hidden lg:flex items-center gap-0.5">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                location.pathname === link.to
-                  ? "bg-accent text-accent-foreground"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
-              }`}
+              className={`relative px-4 py-2 text-sm font-medium transition-colors group ${location.pathname === link.to
+                  ? "text-[#2E8B00]"
+                  : "text-gray-700 hover:text-[#2E8B00]"
+                }`}
             >
               {link.label}
+              <span
+                className={`absolute bottom-0 left-4 right-4 h-0.5 bg-[#F47920] rounded-full transition-transform origin-left ${location.pathname === link.to ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+              />
             </Link>
           ))}
         </div>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <a href="https://www.facebook.com/share/16gg2zCBWo/" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
-            <Facebook className="w-5 h-5" />
-          </a>
-          <a href="https://www.instagram.com/pywei_?igsh=NTJuM2R2bWE4bnlo" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
-            <Instagram className="w-5 h-5" />
-          </a>
-          <a href="https://ng.linkedin.com/in/prime-youths-and-women-empowerment-initiative-initiative-839897360" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
-            <Linkedin className="w-5 h-5" />
-          </a>
-          <Link to="/donate">
-            <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
-              Donate Now
-            </Button>
+        {/* Donate CTA */}
+        <div className="hidden lg:flex items-center">
+          <Link
+            to="/donate"
+            className="inline-flex items-center gap-2 bg-[#F47920] text-white text-sm font-semibold px-5 py-2.5 rounded hover:bg-[#d96812] transition-colors"
+          >
+            <Heart className="w-4 h-4" />
+            Donate Now
           </Link>
         </div>
 
+        {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 text-foreground"
+          className="lg:hidden p-2 text-gray-800 rounded"
+          aria-label="Toggle menu"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden bg-card border-b border-border overflow-hidden"
+            transition={{ duration: 0.25 }}
+            className="lg:hidden bg-white border-t border-gray-100 overflow-hidden shadow-lg"
           >
-            <div className="container mx-auto px-4 py-4 space-y-2">
+            <div className="container mx-auto px-4 py-4 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    location.pathname === link.to
-                      ? "bg-accent text-accent-foreground"
-                      : "text-muted-foreground hover:bg-muted"
-                  }`}
+                  className={`block px-4 py-3 rounded text-sm font-medium transition-colors ${location.pathname === link.to
+                      ? "bg-[#f0fae8] text-[#2E8B00]"
+                      : "text-gray-700 hover:bg-gray-50 hover:text-[#2E8B00]"
+                    }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Link to="/donate" onClick={() => setIsOpen(false)}>
-                <Button className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90 mt-2">
+              <div className="pt-2 border-t border-gray-100 mt-2">
+                <Link
+                  to="/donate"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full bg-[#F47920] text-white text-sm font-semibold px-5 py-3 rounded hover:bg-[#d96812] transition-colors"
+                >
+                  <Heart className="w-4 h-4" />
                   Donate Now
-                </Button>
-              </Link>
-              <div className="flex items-center justify-center gap-4 pt-4 border-t border-border mt-4">
-                <a href="https://www.facebook.com/share/16gg2zCBWo/" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
+                </Link>
+              </div>
+              <div className="flex items-center justify-center gap-6 pt-3 pb-1">
+                <a href="https://www.facebook.com/share/16gg2zCBWo/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#2E8B00]">
                   <Facebook className="w-5 h-5" />
                 </a>
-                <a href="https://www.instagram.com/pywei_?igsh=NTJuM2R2bWE4bnlo" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://www.instagram.com/pywei_?igsh=NTJuM2R2bWE4bnlo" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#2E8B00]">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="https://ng.linkedin.com/in/prime-youths-and-women-empowerment-initiative-initiative-839897360" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://ng.linkedin.com/in/prime-youths-and-women-empowerment-initiative-initiative-839897360" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#2E8B00]">
                   <Linkedin className="w-5 h-5" />
                 </a>
               </div>
