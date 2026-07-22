@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
-import heroBg from "@/assets/hero-bg.jpg";
-import programYouth from "@/assets/program-youth.jpg";
-import programWomen from "@/assets/program-women.jpg";
-import programHealth from "@/assets/program-health.jpg";
-import programEducation from "@/assets/program-education.jpg";
+import heroBg from "@/assets/003.jpg";
+import programYouth from "@/assets/6.jpg";
+import programWomen from "@/assets/1.jpg";
+import programHealth from "@/assets/Project Girl Rise.jpg";
+import programEducation from "@/assets/J.jpg";
+import girlRise1 from "@/assets/Project Girl Rise.jpg";
 
 const categoryIcons: Record<string, JSX.Element> = {
   "Youth Empowerment": <Users className="w-6 h-6" />,
@@ -17,6 +18,7 @@ const categoryIcons: Record<string, JSX.Element> = {
   "Education Support": <GraduationCap className="w-6 h-6" />,
   "Health Awareness": <Stethoscope className="w-6 h-6" />,
   "Community Outreach": <HandHelping className="w-6 h-6" />,
+  "Project Girl Rise": <Heart className="w-6 h-6" />,
 };
 
 const defaultImages: Record<string, string> = {
@@ -43,6 +45,7 @@ const Programs = () => {
         setPrograms([
           { title: "Youth Empowerment", description: "Our Youth Empowerment program equips young people aged 15–35...", activities: ["Digital skills training", "Leadership workshops"], impact: "2,000+ youths trained" },
           { title: "Women Empowerment", description: "Economic independence for women...", activities: ["Vocational training", "Financial literacy"], impact: "1,500+ women empowered" },
+          { title: "Project Girl Rise", description: "Bridging the gaps for women's health and wellbeing. Partnering with GIFSEP and CBM Global to address systemic gaps affecting women's health.", activities: ["Stakeholder Engagement", "Health Awareness"], impact: "Ongoing Initiatives", image_url: girlRise1 },
           // etc... (keeping it simple for fallback)
         ]);
       }

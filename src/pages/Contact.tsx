@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/003.jpg";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -51,6 +51,7 @@ const Contact = () => {
                   { icon: <Mail className="w-5 h-5" />, label: "Email", value: "primeyouthinitiative22@gmail.com" },
                   { icon: <Phone className="w-5 h-5" />, label: "Phone", value: "0705 368 9152 / 0703 391 6169" },
                   { icon: <MapPin className="w-5 h-5" />, label: "Location", value: "C5 Unique Plaza, Modern Market Junction, Makurdi, Benue State" },
+                  { icon: <Globe className="w-5 h-5" />, label: "Website", value: "pywei.org.ng" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary flex-shrink-0">

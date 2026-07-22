@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Heart } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Heart, Globe } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => (
@@ -27,8 +27,7 @@ const Footer = () => (
             </div>
           </div>
           <p className="text-sm leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.6)" }}>
-            Empowering youths and women to build a brighter, more equitable future through
-            education, skill development, and community support.
+            A registered women and Youth-led community-driven NGO responding to the growing social vices, and systemic barriers that prevent Adolescents, Young People and women from thriving.
           </p>
           {/* Social icons */}
           <div className="flex items-center gap-3">
@@ -153,6 +152,10 @@ const Footer = () => (
             <li className="flex items-start gap-3">
               <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#2E8B00]" />
               <span>C5 Unique Plaza, Modern Market Junction, Makurdi, Benue State</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <Globe className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#F47920]" />
+              <a href="https://pywei.org.ng" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">pywei.org.ng</a>
             </li>
           </ul>
 

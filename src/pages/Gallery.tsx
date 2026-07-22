@@ -3,13 +3,54 @@ import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import { X, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
-import heroBg from "@/assets/hero-bg.jpg";
-import programYouth from "@/assets/program-youth.jpg";
-import programWomen from "@/assets/program-women.jpg";
-import programHealth from "@/assets/program-health.jpg";
-import programEducation from "@/assets/program-education.jpg";
+import heroBg from "@/assets/003.jpg";
+import programYouth from "@/assets/6.jpg";
+import programWomen from "@/assets/1.jpg";
+import programHealth from "@/assets/Project Girl Rise.jpg";
+import programEducation from "@/assets/J.jpg";
+import girlRise1 from "@/assets/Project Girl Rise.jpg";
+import girlRise2 from "@/assets/Project Girl Rise (2).jpg";
+import girlRise3 from "@/assets/Project Girl Rise (3).jpg";
+import girlRise4 from "@/assets/Project Girl Rise (4).jpg";
+import girlRise5 from "@/assets/Project Girl Rise (5).jpg";
+import wee1 from "@/assets/1.jpg";
+import wee2 from "@/assets/2.jpg";
+import wee3 from "@/assets/3.jpg";
+import wee4 from "@/assets/4.jpg";
+import wee5 from "@/assets/5.jpg";
+import nysc6 from "@/assets/6.jpg";
+import nysc7 from "@/assets/7.jpg";
+import nysc8 from "@/assets/8.jpg";
+import nysc9 from "@/assets/9.jpg";
+import envA from "@/assets/A.jpg";
+import envB from "@/assets/B.jpg";
+import envC from "@/assets/C.jpg";
+import envD from "@/assets/D.jpg";
+import envE from "@/assets/E.jpg";
+import envF from "@/assets/F.jpg";
+import envG from "@/assets/G.jpg";
+import envH from "@/assets/H.jpg";
+import envI from "@/assets/I.jpg";
+import skillsJ from "@/assets/J.jpg";
+import skillsK from "@/assets/K.jpg";
+import skillsL from "@/assets/L.jpg";
+import skillsM from "@/assets/M.jpg";
+import skillsN from "@/assets/N.jpg";
+import skillsO from "@/assets/O.jpg";
+import skillsP from "@/assets/P.jpg";
+import skillsQ from "@/assets/Q.jpg";
+import skillsR from "@/assets/R.jpg";
+import skillsS from "@/assets/S.jpg";
+import skillsT from "@/assets/T.jpg";
+import cso000 from "@/assets/000.jpg";
+import cso001 from "@/assets/001.jpg";
+import cso002 from "@/assets/002.jpg";
+import cso003 from "@/assets/003.jpg";
+import cso004 from "@/assets/004.jpg";
+import cso005 from "@/assets/005.jpg";
+import cso006 from "@/assets/006.jpg";
 
-const categories = ["All", "Programs", "Events", "Workshops"];
+const categories = ["All", "Programs", "Events", "Workshops", "Project Girl Rise", "WEE Policy Framework", "NYSC Sensitization", "World Environment Day", "Digital Skills", "Capacity Building"];
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -26,10 +67,47 @@ const Gallery = () => {
       } else {
         // Fallback
         setGalleryItems([
-          { image_url: heroBg, title: "Youth summit event", category: "Events" },
-          { image_url: programYouth, title: "Youth digital skills training", category: "Programs" },
-          { image_url: programWomen, title: "Women vocational training", category: "Workshops" },
-          { image_url: programEducation, title: "Education support program", category: "Programs" },
+          { image_url: girlRise1, title: "Project Girl Rise", category: "Project Girl Rise" },
+          { image_url: girlRise2, title: "Project Girl Rise - Session 2", category: "Project Girl Rise" },
+          { image_url: girlRise3, title: "Project Girl Rise - Session 3", category: "Project Girl Rise" },
+          { image_url: girlRise4, title: "Project Girl Rise - Session 4", category: "Project Girl Rise" },
+          { image_url: girlRise5, title: "Project Girl Rise - Session 5", category: "Project Girl Rise" },
+          { image_url: wee1, title: "WEE Policy Framework - Day 1", category: "WEE Policy Framework" },
+          { image_url: wee2, title: "WEE Policy Framework - Stakeholders", category: "WEE Policy Framework" },
+          { image_url: wee3, title: "WEE Policy Framework - Engagement", category: "WEE Policy Framework" },
+          { image_url: wee4, title: "WEE Policy Framework - Session", category: "WEE Policy Framework" },
+          { image_url: wee5, title: "WEE Policy Framework - Validation", category: "WEE Policy Framework" },
+          { image_url: nysc6, title: "NYSC Camp Wannune Sensitization - 1", category: "NYSC Sensitization" },
+          { image_url: nysc7, title: "NYSC Camp Wannune Sensitization - 2", category: "NYSC Sensitization" },
+          { image_url: nysc8, title: "NYSC Camp Wannune Sensitization - 3", category: "NYSC Sensitization" },
+          { image_url: nysc9, title: "NYSC Camp Wannune Sensitization - 4", category: "NYSC Sensitization" },
+          { image_url: envA, title: "World Environment Day - Walk", category: "World Environment Day" },
+          { image_url: envB, title: "World Environment Day - Awareness", category: "World Environment Day" },
+          { image_url: envC, title: "World Environment Day - Speeches", category: "World Environment Day" },
+          { image_url: envD, title: "World Environment Day - Participants", category: "World Environment Day" },
+          { image_url: envE, title: "World Environment Day - Tree Planting 1", category: "World Environment Day" },
+          { image_url: envF, title: "World Environment Day - Tree Planting 2", category: "World Environment Day" },
+          { image_url: envG, title: "World Environment Day - Collaboration", category: "World Environment Day" },
+          { image_url: envH, title: "World Environment Day - Action", category: "World Environment Day" },
+          { image_url: envI, title: "World Environment Day - Group", category: "World Environment Day" },
+          { image_url: skillsJ, title: "Digital Skills Training - Session", category: "Digital Skills" },
+          { image_url: skillsK, title: "Digital Skills Training - Certificates", category: "Digital Skills" },
+          { image_url: skillsL, title: "Digital Skills Training - Group", category: "Digital Skills" },
+          { image_url: skillsM, title: "Digital Skills Training - Mentorship", category: "Digital Skills" },
+          { image_url: skillsN, title: "Digital Skills Training - Practice", category: "Digital Skills" },
+          { image_url: skillsO, title: "Digital Skills Training - Discussion", category: "Digital Skills" },
+          { image_url: skillsP, title: "Digital Skills Training - Graduation", category: "Digital Skills" },
+          { image_url: skillsQ, title: "Digital Skills Training - Class", category: "Digital Skills" },
+          { image_url: skillsR, title: "Digital Skills Training - Award", category: "Digital Skills" },
+          { image_url: skillsS, title: "Digital Skills Training - Learning", category: "Digital Skills" },
+          { image_url: skillsT, title: "Digital Skills Training - Partners", category: "Digital Skills" },
+          { image_url: cso000, title: "Capacity Building - 1", category: "Capacity Building" },
+          { image_url: cso001, title: "Capacity Building - 2", category: "Capacity Building" },
+          { image_url: cso002, title: "Capacity Building - 3", category: "Capacity Building" },
+          { image_url: cso003, title: "Capacity Building - 4", category: "Capacity Building" },
+          { image_url: cso004, title: "Capacity Building - 5", category: "Capacity Building" },
+          { image_url: cso005, title: "Capacity Building - 6", category: "Capacity Building" },
+          { image_url: cso006, title: "Capacity Building - 7", category: "Capacity Building" },
         ]);
       }
       setLoading(false);

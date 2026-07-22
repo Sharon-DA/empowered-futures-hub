@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Heart, CreditCard, QrCode, Building2 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/003.jpg";
 
 const donationImpact = [
   { amount: "₦5,000", impact: "School supplies for 1 child" },

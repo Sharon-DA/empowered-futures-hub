@@ -15,11 +15,18 @@ import {
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/lib/supabase";
-import heroBg from "@/assets/hero-bg.jpg";
-import programYouth from "@/assets/program-youth.jpg";
-import programWomen from "@/assets/program-women.jpg";
-import programHealth from "@/assets/program-health.jpg";
-import programEducation from "@/assets/program-education.jpg";
+import heroBg from "@/assets/003.jpg";
+import programYouth from "@/assets/6.jpg";
+import programWomen from "@/assets/1.jpg";
+import programHealth from "@/assets/Project Girl Rise.jpg";
+import programEducation from "@/assets/J.jpg";
+import girlRise1 from "@/assets/Project Girl Rise.jpg";
+import girlRise2 from "@/assets/Project Girl Rise (2).jpg";
+import wee1 from "@/assets/1.jpg";
+import nysc6 from "@/assets/6.jpg";
+import envA from "@/assets/A.jpg";
+import skillsJ from "@/assets/J.jpg";
+import cso000 from "@/assets/000.jpg";
 import logo from "@/assets/logo.png";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -85,11 +92,13 @@ const testimonials = [
 ];
 
 const galleryImages = [
-  programYouth,
-  programWomen,
-  programHealth,
-  programEducation,
-  heroBg,
+  cso000,
+  skillsJ,
+  envA,
+  nysc6,
+  wee1,
+  girlRise1,
+  girlRise2,
 ];
 
 // ─── Animated Counter ────────────────────────────────────────────────────────
@@ -317,10 +326,7 @@ const Index = () => {
                 <span className="text-[#2E8B00]">Community & Empowerment</span>
               </h2>
               <p className="text-gray-600 text-base leading-relaxed mb-4">
-                Prime Youths &amp; Women Empowerment Initiative (PYWEI) is a non-governmental
-                organisation based in Makurdi, Benue State, dedicated to empowering young people
-                and women across Nigeria through education, skills training, and community
-                development.
+                Prime Youths &amp; Women Empowerment Initiative (PYWEI) is a registered women and Youth-led community-driven NGO based in Makurdi, Benue State. We are responding to the growing social vices and systemic barriers that prevent Adolescents, Young People and women from thriving.
               </p>
               <p className="text-gray-600 text-base leading-relaxed mb-8">
                 Since our founding, we have touched thousands of lives — equipping individuals
@@ -555,28 +561,35 @@ const Index = () => {
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                img: programYouth,
+                img: cso000,
+                cat: "Workshops",
+                title: "Capacity Building Workshop by CSO-B",
+                date: "July 2026",
+                excerpt: "PYWEI participated in a transformative 2-day Capacity Building Workshop to strengthen organizational capacity.",
+              },
+              {
+                img: envA,
+                cat: "Environment",
+                title: "World Environment Day 2026",
+                date: "June 2026",
+                excerpt: "PYWEI commemorated World Environment Day with a peaceful awareness walk and tree-planting exercise in Makurdi.",
+              },
+              {
+                img: nysc6,
                 cat: "Youth",
-                title: "PYWEI Trains 300 Youth in Digital Skills",
-                date: "June 2025",
-                excerpt: "Hundreds of young people in Benue State completed a 3-week intensive digital literacy training programme.",
+                title: "Gender Equality Sensitization at NYSC Camp",
+                date: "June 2026",
+                excerpt: "PYWEI engaged Corps Members at the NYSC Orientation Camp, Wannune, in a sensitization session on Gender Inequality.",
               },
               {
-                img: programWomen,
-                cat: "Women",
-                title: "Women's Empowerment Forum Draws Record Attendance",
-                date: "May 2025",
-                excerpt: "Over 500 women participated in our annual empowerment forum focusing on economic independence.",
-              },
-              {
-                img: programHealth,
-                cat: "Health",
-                title: "Free Medical Outreach Reaches 2,000+ Residents",
-                date: "April 2025",
-                excerpt: "PYWEI partnered with healthcare providers to deliver free check-ups and medications to underserved communities.",
+                img: wee1,
+                cat: "Policy",
+                title: "Validation of the WEE Policy Framework",
+                date: "July 2026",
+                excerpt: "PYWEI participated in the 5-Day Stakeholder Engagement and Validation Meeting for the Domestication of the WEE Policy Framework.",
               },
             ].map((post, i) => (
               <motion.article

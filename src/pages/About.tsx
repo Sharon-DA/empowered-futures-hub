@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import { Target, Eye, Users, Award, Calendar } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/003.jpg";
 
 const milestones = [
   { year: "2020", title: "Founded in Makurdi", description: "Prime Youths and Women Empowerment Initiative was established in Makurdi, Benue State, with a vision to transform communities." },
@@ -29,7 +29,7 @@ const About = () => (
       <div className="relative container mx-auto px-4 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-4">About Us</h1>
-          <p className="text-background/80 text-lg max-w-2xl mx-auto">Discover our story, mission, and the team behind the impact.</p>
+          <p className="text-background/80 text-lg max-w-3xl mx-auto">A registered women and Youth-led community-driven NGO responding to the growing social vices, and systemic barriers that prevent Adolescents, Young People and women from thriving.</p>
         </motion.div>
       </div>
     </section>
