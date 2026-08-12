@@ -46,35 +46,35 @@ const Index = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Hero" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+          <img src={heroImage} alt="Youths and women in a Prime Youths empowerment program" className="w-full h-full object-cover" width={1920} height={1080} />
+          <div className="absolute inset-0 hero-overlay" />
         </div>
-        <div className="relative container mx-auto px-4 py-32 text-center md:text-left md:max-w-3xl md:mr-auto">
+        <div className="relative container mx-auto px-4 pt-32 pb-24 text-center md:text-left md:max-w-3xl md:mr-auto">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="inline-block bg-secondary/90 text-secondary-foreground text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-              🌍 Making a Difference Together
+            <span className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground text-xs md:text-sm font-semibold uppercase tracking-[0.15em] px-5 py-2 rounded-full mb-7 shadow-elevated">
+              Making a Difference Together
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background leading-tight mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background leading-[1.08] tracking-tight mb-6">
               {heroTitle}
             </h1>
-            <p className="text-background/80 text-lg md:text-xl max-w-xl mb-8 leading-relaxed">
+            <p className="text-background/85 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
               {heroSubtitle}
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <Link to="/donate">
-                <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 text-base font-semibold px-8 h-12">
+                <Button size="lg" className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 text-base font-semibold px-8 h-13 py-3.5 shadow-elevated">
                   Donate <Heart className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold px-8 h-12">
+                <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold px-8 py-3.5">
                   Volunteer
                 </Button>
               </Link>
               <Link to="/about">
-                <Button size="lg" className="bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white/30 text-base font-semibold px-8 h-12">
+                <Button size="lg" className="rounded-full bg-transparent border-2 border-background/70 text-background hover:bg-background hover:text-foreground text-base font-semibold px-8 py-3.5 transition-colors">
                   Partner With Us
                 </Button>
               </Link>
@@ -82,6 +82,7 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
 
       {/* Impact Counters */}
       <section className="section-padding bg-card">
