@@ -44,7 +44,7 @@ const Donate = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center hover:shadow-md transition-shadow"
+              className="bg-card rounded-3xl p-6 md:p-7 border border-border/70 shadow-card text-center hover:shadow-elevated hover:-translate-y-1 transition-all duration-300"
             >
               <div className="font-heading text-2xl md:text-3xl font-bold text-primary mb-2">{item.amount}</div>
               <p className="text-muted-foreground text-sm">{item.impact}</p>
@@ -60,30 +60,31 @@ const Donate = () => (
         <SectionHeading label="How to Give" title="Donation Methods" />
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="bg-card rounded-2xl p-8 border border-border shadow-sm">
-            <div className="w-14 h-14 rounded-xl bg-green-light flex items-center justify-center text-primary mb-6">
+            className="bg-card rounded-3xl p-8 border border-border/70 shadow-card">
+            <div className="w-14 h-14 rounded-2xl bg-green-light flex items-center justify-center text-primary mb-6">
               <Building2 className="w-7 h-7" />
             </div>
-            <h3 className="font-heading text-xl font-bold text-foreground mb-4">Bank Transfer</h3>
+            <h3 className="font-heading text-xl font-bold text-foreground mb-5">Bank Transfer</h3>
             <div className="space-y-3 text-sm">
-              <div className="flex justify-between py-2 border-b border-border">
+              <div className="flex justify-between gap-4 py-2.5 border-b border-border">
                 <span className="text-muted-foreground">Bank Name</span>
-                <span className="font-semibold text-foreground">First Bank Nigeria</span>
+                <span className="font-semibold text-foreground text-right">Zenith Bank</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-border">
-                <span className="text-muted-foreground">Account Name</span>
-                <span className="font-semibold text-foreground">Prime Youths & Women</span>
+              <div className="flex justify-between gap-4 py-2.5 border-b border-border">
+                <span className="text-muted-foreground flex-shrink-0">Account Name</span>
+                <span className="font-semibold text-foreground text-right">PRIME YOUTHS AND WOMEN EMPOWERMENT INITIATIVE</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-border">
+              <div className="flex justify-between gap-4 py-2.5 border-b border-border">
                 <span className="text-muted-foreground">Account Number</span>
-                <span className="font-semibold text-foreground">0123456789</span>
+                <span className="font-semibold text-foreground text-right tracking-wide">1225787466</span>
               </div>
             </div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
-            className="bg-card rounded-2xl p-8 border border-border shadow-sm">
-            <div className="w-14 h-14 rounded-xl bg-orange-light flex items-center justify-center text-secondary mb-6">
+            className="bg-card rounded-3xl p-8 border border-border/70 shadow-card">
+
+            <div className="w-14 h-14 rounded-2xl bg-orange-light flex items-center justify-center text-secondary mb-6">
               <QrCode className="w-7 h-7" />
             </div>
             <h3 className="font-heading text-xl font-bold text-foreground mb-4">Mobile Transfer / QR Code</h3>
