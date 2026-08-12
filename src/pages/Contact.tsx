@@ -24,10 +24,10 @@ const Contact = () => {
 
   return (
     <div>
-      <section className="relative py-32 md:py-40 overflow-hidden">
+      <section className="relative py-36 md:py-44 overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroBg} alt="Contact" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-foreground/75" />
+          <div className="absolute inset-0 hero-overlay" />
         </div>
         <div className="relative container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>

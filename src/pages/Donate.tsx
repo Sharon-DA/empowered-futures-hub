@@ -15,18 +15,22 @@ const donationImpact = [
 
 const Donate = () => (
   <div>
-    <section className="relative py-32 md:py-40 overflow-hidden">
+    <section className="relative py-36 md:py-44 overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroBg} alt="Donate" className="w-full h-full object-cover" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-foreground/75" />
+        <img src={heroBg} alt="Supporters of Prime Youths & Women Empowerment Initiative" className="w-full h-full object-cover" width={1920} height={1080} />
+        <div className="absolute inset-0 hero-overlay" />
       </div>
       <div className="relative container mx-auto px-4 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-4">Support Our Work</h1>
-          <p className="text-background/80 text-lg max-w-2xl mx-auto">Every donation, no matter the size, creates ripples of change in our communities.</p>
+          <span className="inline-flex items-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-secondary mb-5">
+            <span className="h-px w-8 bg-secondary/60" /> Give Today <span className="h-px w-8 bg-secondary/60" />
+          </span>
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-5 tracking-tight">Support Our Work</h1>
+          <p className="text-background/85 text-lg max-w-2xl mx-auto leading-relaxed">Every donation, no matter the size, creates ripples of change in our communities.</p>
         </motion.div>
       </div>
     </section>
+
 
     {/* Impact of Donations */}
     <section className="section-padding">
@@ -40,7 +44,7 @@ const Donate = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center hover:shadow-md transition-shadow"
+              className="bg-card rounded-3xl p-6 md:p-7 border border-border/70 shadow-card text-center hover:shadow-elevated hover:-translate-y-1 transition-all duration-300"
             >
               <div className="font-heading text-2xl md:text-3xl font-bold text-primary mb-2">{item.amount}</div>
               <p className="text-muted-foreground text-sm">{item.impact}</p>
@@ -56,30 +60,31 @@ const Donate = () => (
         <SectionHeading label="How to Give" title="Donation Methods" />
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="bg-card rounded-2xl p-8 border border-border shadow-sm">
-            <div className="w-14 h-14 rounded-xl bg-green-light flex items-center justify-center text-primary mb-6">
+            className="bg-card rounded-3xl p-8 border border-border/70 shadow-card">
+            <div className="w-14 h-14 rounded-2xl bg-green-light flex items-center justify-center text-primary mb-6">
               <Building2 className="w-7 h-7" />
             </div>
-            <h3 className="font-heading text-xl font-bold text-foreground mb-4">Bank Transfer</h3>
+            <h3 className="font-heading text-xl font-bold text-foreground mb-5">Bank Transfer</h3>
             <div className="space-y-3 text-sm">
-              <div className="flex justify-between py-2 border-b border-border">
+              <div className="flex justify-between gap-4 py-2.5 border-b border-border">
                 <span className="text-muted-foreground">Bank Name</span>
-                <span className="font-semibold text-foreground">First Bank Nigeria</span>
+                <span className="font-semibold text-foreground text-right">Zenith Bank</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-border">
-                <span className="text-muted-foreground">Account Name</span>
-                <span className="font-semibold text-foreground">Prime Youths & Women</span>
+              <div className="flex justify-between gap-4 py-2.5 border-b border-border">
+                <span className="text-muted-foreground flex-shrink-0">Account Name</span>
+                <span className="font-semibold text-foreground text-right">PRIME YOUTHS AND WOMEN EMPOWERMENT INITIATIVE</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-border">
+              <div className="flex justify-between gap-4 py-2.5 border-b border-border">
                 <span className="text-muted-foreground">Account Number</span>
-                <span className="font-semibold text-foreground">0123456789</span>
+                <span className="font-semibold text-foreground text-right tracking-wide">1225787466</span>
               </div>
             </div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
-            className="bg-card rounded-2xl p-8 border border-border shadow-sm">
-            <div className="w-14 h-14 rounded-xl bg-orange-light flex items-center justify-center text-secondary mb-6">
+            className="bg-card rounded-3xl p-8 border border-border/70 shadow-card">
+
+            <div className="w-14 h-14 rounded-2xl bg-orange-light flex items-center justify-center text-secondary mb-6">
               <QrCode className="w-7 h-7" />
             </div>
             <h3 className="font-heading text-xl font-bold text-foreground mb-4">Mobile Transfer / QR Code</h3>
@@ -105,7 +110,7 @@ const Donate = () => (
             Your support makes our programs possible. Together, we can empower more youths and women to build brighter futures.
           </p>
           <a href="mailto:primeyouthinitiative22@gmail.com">
-            <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-8 h-12">
+            <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold px-8 py-3.5">
               Contact Us for More Info
             </Button>
           </a>

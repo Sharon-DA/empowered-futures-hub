@@ -46,35 +46,35 @@ const Index = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Hero" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+          <img src={heroImage} alt="Youths and women in a Prime Youths empowerment program" className="w-full h-full object-cover" width={1920} height={1080} />
+          <div className="absolute inset-0 hero-overlay" />
         </div>
-        <div className="relative container mx-auto px-4 py-32 text-center md:text-left md:max-w-3xl md:mr-auto">
+        <div className="relative container mx-auto px-4 pt-32 pb-24 text-center md:text-left md:max-w-3xl md:mr-auto">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="inline-block bg-secondary/90 text-secondary-foreground text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-              🌍 Making a Difference Together
+            <span className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground text-xs md:text-sm font-semibold uppercase tracking-[0.15em] px-5 py-2 rounded-full mb-7 shadow-elevated">
+              Making a Difference Together
             </span>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background leading-tight mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background leading-[1.08] tracking-tight mb-6">
               {heroTitle}
             </h1>
-            <p className="text-background/80 text-lg md:text-xl max-w-xl mb-8 leading-relaxed">
+            <p className="text-background/85 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
               {heroSubtitle}
             </p>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <Link to="/donate">
-                <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 text-base font-semibold px-8 h-12">
+                <Button size="lg" className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 text-base font-semibold px-8 py-3.5 shadow-elevated">
                   Donate <Heart className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold px-8 h-12">
+                <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold px-8 py-3.5">
                   Volunteer
                 </Button>
               </Link>
               <Link to="/about">
-                <Button size="lg" className="bg-white/20 backdrop-blur-sm border-2 border-white text-white hover:bg-white/30 text-base font-semibold px-8 h-12">
+                <Button size="lg" className="rounded-full bg-transparent border-2 border-background/70 text-background hover:bg-background hover:text-foreground text-base font-semibold px-8 py-3.5 transition-colors">
                   Partner With Us
                 </Button>
               </Link>
@@ -83,11 +83,13 @@ const Index = () => {
         </div>
       </section>
 
+
       {/* Impact Counters */}
-      <section className="section-padding bg-card">
-        <div className="container mx-auto">
+      <section className="relative section-padding bg-card overflow-hidden">
+        <span className="watermark" aria-hidden="true">Impact</span>
+        <div className="relative container mx-auto">
           <SectionHeading label="Our Impact" title="Changing Lives, One Step at a Time" />
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             <Counter end={stats.empowered} suffix="+" label="People Empowered" icon={<Users className="w-7 h-7" />} />
             <Counter end={stats.programs} suffix="+" label="Programs Completed" icon={<GraduationCap className="w-7 h-7" />} />
             <Counter end={stats.volunteers} suffix="+" label="Active Volunteers" icon={<HandHelping className="w-7 h-7" />} />
@@ -97,10 +99,11 @@ const Index = () => {
       </section>
 
       {/* Featured Programs */}
-      <section className="section-padding">
-        <div className="container mx-auto">
+      <section className="relative section-padding overflow-hidden">
+        <span className="watermark" aria-hidden="true">Programs</span>
+        <div className="relative container mx-auto">
           <SectionHeading label="What We Do" title="Our Featured Programs" description="We run impactful programs that address the most pressing needs of youths and women in our communities." />
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {programs.map((program, i) => (
               <motion.div
                 key={program.title}
@@ -108,15 +111,15 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group bg-card rounded-2xl overflow-hidden shadow-sm border border-border hover:shadow-lg transition-shadow"
+                className="group bg-card rounded-3xl overflow-hidden shadow-card border border-border/70 hover:shadow-elevated hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="h-56 overflow-hidden">
-                  <img src={program.image} alt={program.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width={800} height={600} />
+                <div className="h-60 overflow-hidden">
+                  <img src={program.image} alt={program.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" width={800} height={600} />
                 </div>
-                <div className="p-6">
-                  <h3 className="font-heading text-xl font-bold text-foreground mb-2">{program.title}</h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{program.description}</p>
-                  <Link to={program.link} className="inline-flex items-center text-primary font-semibold text-sm hover:gap-3 gap-2 transition-all">
+                <div className="p-7 md:p-8">
+                  <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground mb-3">{program.title}</h3>
+                  <p className="text-muted-foreground mb-5 leading-relaxed">{program.description}</p>
+                  <Link to={program.link} className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
                     Learn More <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -127,10 +130,11 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-accent">
-        <div className="container mx-auto">
+      <section className="relative section-padding bg-accent overflow-hidden">
+        <span className="watermark" aria-hidden="true">Voices</span>
+        <div className="relative container mx-auto">
           <SectionHeading label="Testimonials" title="Voices of Impact" description="Hear from the people whose lives have been transformed through our programs." />
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.name}
@@ -138,11 +142,11 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                className="bg-card rounded-2xl p-8 shadow-sm border border-border"
+                className="relative bg-card rounded-3xl p-8 shadow-card border border-border/70"
               >
-                <Quote className="w-8 h-8 text-secondary mb-4" />
-                <p className="text-foreground leading-relaxed mb-6 italic">"{t.quote}"</p>
-                <div>
+                <Quote className="w-9 h-9 text-secondary mb-5" />
+                <p className="text-foreground leading-relaxed mb-7">{t.quote}</p>
+                <div className="pt-5 border-t border-border">
                   <p className="font-semibold text-foreground">{t.name}</p>
                   <p className="text-sm text-muted-foreground">{t.role}</p>
                 </div>
@@ -152,13 +156,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Latest News (Simplified) */}
+      {/* Latest News */}
       <section className="section-padding bg-card">
         <div className="container mx-auto text-center">
-          <SectionHeading label="Stay Updated" title="Latest News & Achievements" />
-          <p className="mb-10 text-muted-foreground">Check out our latest news posts and stories of impact.</p>
+          <SectionHeading label="Stay Updated" title="Latest News & Achievements" description="Check out our latest news posts and stories of impact from across our communities." />
           <Link to="/news">
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-semibold">
+            <Button size="lg" variant="outline" className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3.5">
               View All News <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
@@ -166,23 +169,23 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary">
+      <section className="section-padding bg-brand-gradient">
         <div className="container mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6 tracking-tight">
               Join Us in Making a Difference
             </h2>
-            <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-8">
+            <p className="text-primary-foreground/85 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
               Whether you donate, volunteer, or spread the word — every action counts. Together, we can empower more lives.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/donate">
-                <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-8 h-12">
+                <Button size="lg" className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-8 py-3.5 shadow-elevated">
                   Donate Now
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold px-8 h-12">
+                <Button size="lg" className="rounded-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold px-8 py-3.5">
                   Get Involved
                 </Button>
               </Link>
@@ -190,6 +193,7 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
     </div>
   );
 };
