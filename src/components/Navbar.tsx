@@ -34,7 +34,7 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 location.pathname === link.to
                   ? "bg-accent text-accent-foreground"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted"
@@ -56,7 +56,7 @@ const Navbar = () => {
             <Linkedin className="w-5 h-5" />
           </a>
           <Link to="/donate">
-            <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold">
+            <Button className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-6">
               Donate Now
             </Button>
           </Link>

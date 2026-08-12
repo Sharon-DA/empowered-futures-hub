@@ -53,10 +53,10 @@ const Programs = () => {
 
   return (
     <div>
-      <section className="relative py-32 md:py-40 overflow-hidden">
+      <section className="relative py-36 md:py-44 overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroBg} alt="Programs" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-foreground/75" />
+          <div className="absolute inset-0 hero-overlay" />
         </div>
         <div className="relative container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -124,7 +124,7 @@ const Programs = () => {
         <div className="container mx-auto text-center">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-6">Want to Support a Program?</h2>
           <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto mb-8">Your donation directly funds these programs and changes lives.</p>
-          <Link to="/donate"><Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-8 h-12">Donate Now</Button></Link>
+          <Link to="/donate"><Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold px-8 py-3.5">Donate Now</Button></Link>
         </div>
       </section>
     </div>
