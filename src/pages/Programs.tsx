@@ -35,20 +35,16 @@ const Programs = () => {
   useEffect(() => {
     const fetchPrograms = async () => {
       setLoading(true);
-      try {
-        const { data, error } = await supabase.from("programs").select("*").order("created_at", { ascending: true });
-        if (!error && data && data.length > 0) {
-          setPrograms(data);
-        } else {
-          setPrograms(fallbackPrograms);
-        }
-      } catch {
-        setPrograms(fallbackPrograms);
-      }
+      const data = await withFallback(
+        () => supabase.from("programs").select("*").order("created_at", { ascending: true }),
+        fallbackPrograms,
+      );
+      setPrograms(data);
       setLoading(false);
     };
     fetchPrograms();
   }, []);
+
 
 
   return (

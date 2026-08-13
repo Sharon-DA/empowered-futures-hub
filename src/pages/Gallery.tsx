@@ -21,20 +21,16 @@ const Gallery = () => {
   useEffect(() => {
     const fetchGallery = async () => {
       setLoading(true);
-      try {
-        const { data, error } = await supabase.from("gallery").select("*").order("created_at", { ascending: false });
-        if (!error && data && data.length > 0) {
-          setGalleryItems(data);
-        } else {
-          setGalleryItems(fallbackGallery);
-        }
-      } catch {
-        setGalleryItems(fallbackGallery);
-      }
+      const data = await withFallback(
+        () => supabase.from("gallery").select("*").order("created_at", { ascending: false }),
+        fallbackGallery,
+      );
+      setGalleryItems(data);
       setLoading(false);
     };
     fetchGallery();
   }, []);
+
 
 
   const filtered = activeCategory === "All" ? galleryItems : galleryItems.filter((g) => g.category === activeCategory);

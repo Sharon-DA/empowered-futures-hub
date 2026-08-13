@@ -18,20 +18,16 @@ const News = () => {
   useEffect(() => {
     const fetchNews = async () => {
       setLoading(true);
-      try {
-        const { data, error } = await supabase.from("news_posts").select("*").order("created_at", { ascending: false });
-        if (!error && data && data.length > 0) {
-          setPosts(data);
-        } else {
-          setPosts(fallbackNews);
-        }
-      } catch {
-        setPosts(fallbackNews);
-      }
+      const data = await withFallback(
+        () => supabase.from("news_posts").select("*").order("created_at", { ascending: false }),
+        fallbackNews,
+      );
+      setPosts(data);
       setLoading(false);
     };
     fetchNews();
   }, []);
+
 
 
   return (
