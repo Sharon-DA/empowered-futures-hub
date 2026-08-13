@@ -3,6 +3,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+import { fallbackNews } from "@/lib/fallbackContent";
 import { format } from "date-fns";
 import heroBg from "@/assets/photo-hero.jpg";
 import programYouth from "@/assets/photo-youth.jpg";
