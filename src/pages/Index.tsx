@@ -44,11 +44,16 @@ const Index = () => {
 
   useEffect(() => {
     const fetchSettings = async () => {
-      const { data } = await supabase.from("site_settings").select("*").eq("id", 1).single();
-      if (data) setSettings(data);
+      try {
+        const { data } = await supabase.from("site_settings").select("*").eq("id", 1).single();
+        if (data) setSettings(data);
+      } catch {
+        /* keep static defaults when backend is unavailable */
+      }
     };
     fetchSettings();
   }, []);
+
 
   const heroImage = settings?.hero_image_url || photoHero;
   const stats = settings?.impact_stats || { empowered: 5000, programs: 50, volunteers: 200, donations: 1000 };
