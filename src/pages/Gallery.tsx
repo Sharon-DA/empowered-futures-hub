@@ -4,6 +4,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { X, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { fallbackGallery } from "@/lib/fallbackContent";
+import { withFallback } from "@/lib/withFallback";
 import heroBg from "@/assets/photo-hero.jpg";
 import programYouth from "@/assets/photo-youth.jpg";
 import programWomen from "@/assets/photo-women.jpg";

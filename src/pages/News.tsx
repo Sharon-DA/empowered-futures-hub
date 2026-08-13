@@ -4,6 +4,7 @@ import { ArrowRight, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { fallbackNews } from "@/lib/fallbackContent";
+import { withFallback } from "@/lib/withFallback";
 import { format } from "date-fns";
 import heroBg from "@/assets/photo-hero.jpg";
 import programYouth from "@/assets/photo-youth.jpg";
