@@ -5,10 +5,10 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { format } from "date-fns";
 import heroBg from "@/assets/photo-hero.jpg";
-import programYouth from "@/assets/program-youth.jpg";
-import programWomen from "@/assets/program-women.jpg";
-import programHealth from "@/assets/program-health.jpg";
-import programEducation from "@/assets/program-education.jpg";
+import programYouth from "@/assets/photo-youth.jpg";
+import programWomen from "@/assets/photo-women.jpg";
+import programHealth from "@/assets/photo-health.jpg";
+import programEducation from "@/assets/photo-education.jpg";
 
 const News = () => {
   const [posts, setPosts] = useState<any[]>([]);
