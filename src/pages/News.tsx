@@ -17,20 +17,21 @@ const News = () => {
   useEffect(() => {
     const fetchNews = async () => {
       setLoading(true);
-      const { data, error } = await supabase.from('news_posts').select('*').order('created_at', { ascending: false });
-      if (!error && data && data.length > 0) {
-        setPosts(data);
-      } else {
-        // Fallback
-        setPosts([
-          { title: "2024 Annual Youth Summit Recap", created_at: "2024-03-15T12:00:00Z", category: "Events", image_url: programYouth, excerpt: "Over 500 young leaders gathered for our biggest summit yet..." },
-          { title: "Women's Skill Workshop Graduation", created_at: "2024-02-28T12:00:00Z", category: "Achievements", image_url: programWomen, excerpt: "30 women graduated from our 6-month vocational training program..." },
-        ]);
+      try {
+        const { data, error } = await supabase.from("news_posts").select("*").order("created_at", { ascending: false });
+        if (!error && data && data.length > 0) {
+          setPosts(data);
+        } else {
+          setPosts(fallbackNews);
+        }
+      } catch {
+        setPosts(fallbackNews);
       }
       setLoading(false);
     };
     fetchNews();
   }, []);
+
 
   return (
     <div>

@@ -34,22 +34,21 @@ const Programs = () => {
   useEffect(() => {
     const fetchPrograms = async () => {
       setLoading(true);
-      const { data, error } = await supabase.from('programs').select('*').order('created_at', { ascending: true });
-      if (!error && data && data.length > 0) {
-        setPrograms(data);
-      } else {
-        // Fallback to static data if DB is empty or error
-        console.log("Using static fallback for programs");
-        setPrograms([
-          { title: "Youth Empowerment", description: "Our Youth Empowerment program equips young people aged 15–35...", activities: ["Digital skills training", "Leadership workshops"], impact: "2,000+ youths trained" },
-          { title: "Women Empowerment", description: "Economic independence for women...", activities: ["Vocational training", "Financial literacy"], impact: "1,500+ women empowered" },
-          // etc... (keeping it simple for fallback)
-        ]);
+      try {
+        const { data, error } = await supabase.from("programs").select("*").order("created_at", { ascending: true });
+        if (!error && data && data.length > 0) {
+          setPrograms(data);
+        } else {
+          setPrograms(fallbackPrograms);
+        }
+      } catch {
+        setPrograms(fallbackPrograms);
       }
       setLoading(false);
     };
     fetchPrograms();
   }, []);
+
 
   return (
     <div>

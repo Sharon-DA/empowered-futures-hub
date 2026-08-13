@@ -20,22 +20,21 @@ const Gallery = () => {
   useEffect(() => {
     const fetchGallery = async () => {
       setLoading(true);
-      const { data, error } = await supabase.from('gallery').select('*').order('created_at', { ascending: false });
-      if (!error && data && data.length > 0) {
-        setGalleryItems(data);
-      } else {
-        // Fallback
-        setGalleryItems([
-          { image_url: heroBg, title: "Youth summit event", category: "Events" },
-          { image_url: programYouth, title: "Youth digital skills training", category: "Programs" },
-          { image_url: programWomen, title: "Women vocational training", category: "Workshops" },
-          { image_url: programEducation, title: "Education support program", category: "Programs" },
-        ]);
+      try {
+        const { data, error } = await supabase.from("gallery").select("*").order("created_at", { ascending: false });
+        if (!error && data && data.length > 0) {
+          setGalleryItems(data);
+        } else {
+          setGalleryItems(fallbackGallery);
+        }
+      } catch {
+        setGalleryItems(fallbackGallery);
       }
       setLoading(false);
     };
     fetchGallery();
   }, []);
+
 
   const filtered = activeCategory === "All" ? galleryItems : galleryItems.filter((g) => g.category === activeCategory);
 
