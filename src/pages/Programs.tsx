@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/photo-hero.jpg";
 import programYouth from "@/assets/program-youth.jpg";
 import programWomen from "@/assets/program-women.jpg";
 import programHealth from "@/assets/program-health.jpg";

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import { X, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/photo-hero.jpg";
 import programYouth from "@/assets/program-youth.jpg";
 import programWomen from "@/assets/program-women.jpg";
 import programHealth from "@/assets/program-health.jpg";

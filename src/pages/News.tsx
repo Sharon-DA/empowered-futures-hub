@@ -4,7 +4,7 @@ import { ArrowRight, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { format } from "date-fns";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/photo-hero.jpg";
 import programYouth from "@/assets/program-youth.jpg";
 import programWomen from "@/assets/program-women.jpg";
 import programHealth from "@/assets/program-health.jpg";
