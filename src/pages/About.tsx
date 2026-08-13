@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import { Target, Eye, Users, Award, Calendar } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/photo-hero.jpg";
 
 const milestones = [
   { year: "2020", title: "Founded in Makurdi", description: "Prime Youths and Women Empowerment Initiative was established in Makurdi, Benue State, with a vision to transform communities." },

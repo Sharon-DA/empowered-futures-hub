@@ -3,12 +3,14 @@ import SectionHeading from "@/components/SectionHeading";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+import { fallbackNews } from "@/lib/fallbackContent";
+import { withFallback } from "@/lib/withFallback";
 import { format } from "date-fns";
-import heroBg from "@/assets/hero-bg.jpg";
-import programYouth from "@/assets/program-youth.jpg";
-import programWomen from "@/assets/program-women.jpg";
-import programHealth from "@/assets/program-health.jpg";
-import programEducation from "@/assets/program-education.jpg";
+import heroBg from "@/assets/photo-hero.jpg";
+import programYouth from "@/assets/photo-youth.jpg";
+import programWomen from "@/assets/photo-women.jpg";
+import programHealth from "@/assets/photo-health.jpg";
+import programEducation from "@/assets/photo-education.jpg";
 
 const News = () => {
   const [posts, setPosts] = useState<any[]>([]);
@@ -17,20 +19,17 @@ const News = () => {
   useEffect(() => {
     const fetchNews = async () => {
       setLoading(true);
-      const { data, error } = await supabase.from('news_posts').select('*').order('created_at', { ascending: false });
-      if (!error && data && data.length > 0) {
-        setPosts(data);
-      } else {
-        // Fallback
-        setPosts([
-          { title: "2024 Annual Youth Summit Recap", created_at: "2024-03-15T12:00:00Z", category: "Events", image_url: programYouth, excerpt: "Over 500 young leaders gathered for our biggest summit yet..." },
-          { title: "Women's Skill Workshop Graduation", created_at: "2024-02-28T12:00:00Z", category: "Achievements", image_url: programWomen, excerpt: "30 women graduated from our 6-month vocational training program..." },
-        ]);
-      }
+      const data = await withFallback(
+        () => supabase.from("news_posts").select("*").order("created_at", { ascending: false }),
+        fallbackNews,
+      );
+      setPosts(data);
       setLoading(false);
     };
     fetchNews();
   }, []);
+
+
 
   return (
     <div>

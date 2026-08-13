@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
-import heroBg from "@/assets/hero-bg.jpg";
-import programYouth from "@/assets/program-youth.jpg";
-import programWomen from "@/assets/program-women.jpg";
-import programHealth from "@/assets/program-health.jpg";
-import programEducation from "@/assets/program-education.jpg";
+import { fallbackPrograms } from "@/lib/fallbackContent";
+import { withFallback } from "@/lib/withFallback";
+import heroBg from "@/assets/photo-hero.jpg";
+import programYouth from "@/assets/photo-youth.jpg";
+import programWomen from "@/assets/photo-women.jpg";
+import programHealth from "@/assets/photo-health.jpg";
+import programEducation from "@/assets/photo-education.jpg";
 
 const categoryIcons: Record<string, JSX.Element> = {
   "Youth Empowerment": <Users className="w-6 h-6" />,
@@ -34,22 +36,17 @@ const Programs = () => {
   useEffect(() => {
     const fetchPrograms = async () => {
       setLoading(true);
-      const { data, error } = await supabase.from('programs').select('*').order('created_at', { ascending: true });
-      if (!error && data && data.length > 0) {
-        setPrograms(data);
-      } else {
-        // Fallback to static data if DB is empty or error
-        console.log("Using static fallback for programs");
-        setPrograms([
-          { title: "Youth Empowerment", description: "Our Youth Empowerment program equips young people aged 15–35...", activities: ["Digital skills training", "Leadership workshops"], impact: "2,000+ youths trained" },
-          { title: "Women Empowerment", description: "Economic independence for women...", activities: ["Vocational training", "Financial literacy"], impact: "1,500+ women empowered" },
-          // etc... (keeping it simple for fallback)
-        ]);
-      }
+      const data = await withFallback(
+        () => supabase.from("programs").select("*").order("created_at", { ascending: true }),
+        fallbackPrograms,
+      );
+      setPrograms(data);
       setLoading(false);
     };
     fetchPrograms();
   }, []);
+
+
 
   return (
     <div>

@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
 import { X, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
-import heroBg from "@/assets/hero-bg.jpg";
-import programYouth from "@/assets/program-youth.jpg";
-import programWomen from "@/assets/program-women.jpg";
-import programHealth from "@/assets/program-health.jpg";
-import programEducation from "@/assets/program-education.jpg";
+import { fallbackGallery } from "@/lib/fallbackContent";
+import { withFallback } from "@/lib/withFallback";
+import heroBg from "@/assets/photo-hero.jpg";
+import programYouth from "@/assets/photo-youth.jpg";
+import programWomen from "@/assets/photo-women.jpg";
+import programHealth from "@/assets/photo-health.jpg";
+import programEducation from "@/assets/photo-education.jpg";
 
 const categories = ["All", "Programs", "Events", "Workshops"];
 
@@ -20,22 +22,17 @@ const Gallery = () => {
   useEffect(() => {
     const fetchGallery = async () => {
       setLoading(true);
-      const { data, error } = await supabase.from('gallery').select('*').order('created_at', { ascending: false });
-      if (!error && data && data.length > 0) {
-        setGalleryItems(data);
-      } else {
-        // Fallback
-        setGalleryItems([
-          { image_url: heroBg, title: "Youth summit event", category: "Events" },
-          { image_url: programYouth, title: "Youth digital skills training", category: "Programs" },
-          { image_url: programWomen, title: "Women vocational training", category: "Workshops" },
-          { image_url: programEducation, title: "Education support program", category: "Programs" },
-        ]);
-      }
+      const data = await withFallback(
+        () => supabase.from("gallery").select("*").order("created_at", { ascending: false }),
+        fallbackGallery,
+      );
+      setGalleryItems(data);
       setLoading(false);
     };
     fetchGallery();
   }, []);
+
+
 
   const filtered = activeCategory === "All" ? galleryItems : galleryItems.filter((g) => g.category === activeCategory);
 

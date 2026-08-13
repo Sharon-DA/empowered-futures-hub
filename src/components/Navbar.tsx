@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Menu, X, Facebook, Instagram, Linkedin, Heart } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,11 +21,11 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
       <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Prime Youths Logo" className="w-14 h-14 rounded-full object-cover" />
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logo} alt="Prime Youths & Women Empowerment Initiative logo" className="w-12 h-12 md:w-14 md:h-14 object-contain" />
           <div className="leading-tight">
-            <span className="font-heading text-lg font-bold text-foreground">Prime Youths</span>
-            <span className="block text-xs text-muted-foreground font-medium -mt-0.5">& Women Empowerment</span>
+            <span className="block font-heading text-base md:text-lg font-bold text-foreground">Prime Youths &amp; Women</span>
+            <span className="block text-[10px] md:text-xs text-primary font-semibold uppercase tracking-[0.14em]">Empowerment Initiative</span>
           </div>
         </Link>
 
@@ -34,16 +34,20 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`relative px-4 py-2 text-sm font-medium transition-colors ${
                 location.pathname === link.to
-                  ? "bg-accent text-accent-foreground"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  ? "text-secondary"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {link.label}
+              {location.pathname === link.to && (
+                <span className="absolute left-4 right-4 -bottom-0.5 h-0.5 rounded-full bg-secondary" />
+              )}
             </Link>
           ))}
         </div>
+
 
         <div className="hidden lg:flex items-center gap-3">
           <a href="https://www.facebook.com/share/16gg2zCBWo/" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-primary transition-colors">
@@ -56,10 +60,11 @@ const Navbar = () => {
             <Linkedin className="w-5 h-5" />
           </a>
           <Link to="/donate">
-            <Button className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-6">
-              Donate Now
+            <Button className="rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-6">
+              <Heart className="w-4 h-4 mr-2" /> Donate Now
             </Button>
           </Link>
+
         </div>
 
         <button
