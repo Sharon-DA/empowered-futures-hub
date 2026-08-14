@@ -124,8 +124,9 @@ const Index = () => {
 
 
       {/* Who We Are */}
-      <section className="section-padding">
-        <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="relative overflow-hidden section-padding">
+        <span className="watermark">About Us</span>
+        <div className="container mx-auto relative grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <SectionHeading
               centered={false}
@@ -144,7 +145,7 @@ const Index = () => {
               </p>
             </div>
             <Link to="/about">
-              <Button size="lg" className="rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-3.5">
+              <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-3.5">
                 Read Our Story <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -171,8 +172,9 @@ const Index = () => {
       </section>
 
       {/* Featured Programs */}
-      <section className="section-padding bg-card">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden section-padding bg-card">
+        <span className="watermark">Programs</span>
+        <div className="container mx-auto relative">
           <SectionHeading label="What We Do" title="Our Featured Programs" description="We run impactful programs addressing the most pressing needs of youths and women in our communities." />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {programs.map((program, i) => (
@@ -199,7 +201,7 @@ const Index = () => {
           </div>
           <div className="text-center mt-12">
             <Link to="/programs">
-              <Button size="lg" variant="outline" className="rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3.5">
+              <Button size="lg" variant="outline" className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3.5">
                 View All Programs <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -208,8 +210,9 @@ const Index = () => {
       </section>
 
       {/* Gallery strip */}
-      <section className="section-padding">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden section-padding">
+        <span className="watermark">Gallery</span>
+        <div className="container mx-auto relative">
           <SectionHeading label="Gallery" title="Moments of Impact" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {galleryStrip.map((img, i) => (
@@ -227,7 +230,7 @@ const Index = () => {
           </div>
           <div className="text-center mt-12">
             <Link to="/gallery">
-              <Button size="lg" className="rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-3.5">
+              <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-3.5">
                 View Full Gallery <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -236,8 +239,9 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-accent">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden section-padding bg-accent">
+        <span className="watermark">Voices</span>
+        <div className="container mx-auto relative">
           <SectionHeading label="Testimonials" title="Voices of Impact" description="Hear from the people whose lives have been transformed through our programs." />
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((t, i) => (
@@ -274,7 +278,7 @@ const Index = () => {
               <SectionHeading centered={false} label="Stay Updated" title="Latest News & Achievements" />
             </div>
             <Link to="/news" className="md:-mt-8">
-              <Button variant="outline" className="rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold">
+              <Button variant="outline" className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold">
                 View All News <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -322,12 +326,12 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/donate">
-                <Button size="lg" className="rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-8 py-3.5 shadow-elevated">
+                <Button size="lg" className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-8 py-3.5 shadow-elevated">
                   Donate Now
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" className="rounded-lg bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold px-8 py-3.5">
+                <Button size="lg" className="rounded-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold px-8 py-3.5">
                   Get Involved
                 </Button>
               </Link>
