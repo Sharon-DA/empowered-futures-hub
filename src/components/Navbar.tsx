@@ -60,7 +60,7 @@ const Navbar = () => {
             <Linkedin className="w-5 h-5" />
           </a>
           <Link to="/donate">
-            <Button className="rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-6">
+            <Button className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-6">
               <Heart className="w-4 h-4 mr-2" /> Donate Now
             </Button>
           </Link>

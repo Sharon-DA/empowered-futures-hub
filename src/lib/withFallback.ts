@@ -4,7 +4,7 @@
  * the static fallback content is used instead.
  */
 export async function withFallback<T>(
-  query: () => Promise<{ data: T[] | null; error: unknown }>,
+  query: () => PromiseLike<{ data: T[] | null; error: unknown }>,
   fallback: T[],
   timeoutMs = 3500,
 ): Promise<T[]> {

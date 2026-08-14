@@ -61,41 +61,47 @@ const Index = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImage} alt="PYWEI stakeholder engagement meeting in Makurdi" className="w-full h-full object-cover" width={1441} height={960} />
-          <div className="absolute inset-0 bg-foreground/60" />
+          <div className="absolute inset-0 hero-overlay" />
         </div>
 
-        <div className="relative container mx-auto px-4 py-32 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-card mx-auto mb-8 flex items-center justify-center shadow-elevated">
-              <img src={logo} alt="Prime Youths & Women Empowerment Initiative logo" className="w-20 h-20 md:w-24 md:h-24 object-contain" />
+        <div className="relative container mx-auto px-4 py-32">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-3xl">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-card flex items-center justify-center shadow-elevated shrink-0">
+                <img src={logo} alt="Prime Youths & Women Empowerment Initiative logo" className="w-14 h-14 md:w-16 md:h-16 object-contain" />
+              </div>
+              <span className="text-xs md:text-sm font-semibold uppercase tracking-[0.24em] text-secondary">
+                Makurdi, Benue State &middot; Nigeria
+              </span>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-5">
-              <span className="block text-background">Prime Youths &amp; Women</span>
-              <span className="block text-primary">Empowerment Initiative</span>
+            <h1 className="font-heading text-[2.6rem] leading-[1.05] md:text-6xl lg:text-7xl font-bold tracking-tight text-background mb-6">
+              Prime Youths
+              <span className="block">&amp; Women</span>
+              <span className="block text-secondary">Empowerment</span>
             </h1>
 
-            <p className="text-secondary text-lg md:text-xl font-medium mb-10 min-h-[2rem]">
+            <p className="text-background/90 text-lg md:text-2xl font-medium mb-10 min-h-[2.5rem]">
               <Typewriter phrases={["Empowering Youths for a Better Tomorrow", "Building Stronger Women, Stronger Communities", "Education. Skills. Dignity."]} />
             </p>
 
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4">
               <Link to="/donate">
-                <Button size="lg" className="rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/90 text-base font-semibold px-8 py-3.5">
+                <Button size="lg" className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 text-base font-semibold px-9 py-3.5 shadow-elevated">
                   <Heart className="w-4 h-4 mr-2" /> Donate Now
                 </Button>
               </Link>
-              <Link to="/about">
-                <Button size="lg" className="rounded-lg bg-transparent border-2 border-background text-background hover:bg-background hover:text-foreground text-base font-semibold px-8 py-3.5 transition-colors">
-                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+              <Link to="/contact">
+                <Button size="lg" className="rounded-full bg-transparent border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground text-base font-semibold px-9 py-3.5 transition-colors">
+                  Volunteer With Us
                 </Button>
               </Link>
-              <Link to="/contact">
-                <Button size="lg" className="rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold px-8 py-3.5">
-                  Volunteer With Us
+              <Link to="/about">
+                <Button size="lg" className="rounded-full bg-transparent border-2 border-background/70 text-background hover:bg-background hover:text-foreground text-base font-semibold px-9 py-3.5 transition-colors">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
             </div>
@@ -104,8 +110,9 @@ const Index = () => {
       </section>
 
       {/* Impact Counters */}
-      <section className="py-14 md:py-16 px-4 bg-card border-b border-border">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden py-14 md:py-16 px-4 bg-card border-b border-border">
+        <span className="watermark">Impact</span>
+        <div className="container mx-auto relative">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <Counter end={stats.empowered} suffix="+" label="People Empowered" icon={<Users className="w-7 h-7" />} />
             <Counter end={stats.programs} suffix="+" label="Programs Completed" icon={<GraduationCap className="w-7 h-7" />} />
@@ -115,9 +122,11 @@ const Index = () => {
         </div>
       </section>
 
+
       {/* Who We Are */}
-      <section className="section-padding">
-        <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="relative overflow-hidden section-padding">
+        <span className="watermark">About Us</span>
+        <div className="container mx-auto relative grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <SectionHeading
               centered={false}
@@ -136,7 +145,7 @@ const Index = () => {
               </p>
             </div>
             <Link to="/about">
-              <Button size="lg" className="rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-3.5">
+              <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-3.5">
                 Read Our Story <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -163,8 +172,9 @@ const Index = () => {
       </section>
 
       {/* Featured Programs */}
-      <section className="section-padding bg-card">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden section-padding bg-card">
+        <span className="watermark">Programs</span>
+        <div className="container mx-auto relative">
           <SectionHeading label="What We Do" title="Our Featured Programs" description="We run impactful programs addressing the most pressing needs of youths and women in our communities." />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {programs.map((program, i) => (
@@ -191,7 +201,7 @@ const Index = () => {
           </div>
           <div className="text-center mt-12">
             <Link to="/programs">
-              <Button size="lg" variant="outline" className="rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3.5">
+              <Button size="lg" variant="outline" className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3.5">
                 View All Programs <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -200,8 +210,9 @@ const Index = () => {
       </section>
 
       {/* Gallery strip */}
-      <section className="section-padding">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden section-padding">
+        <span className="watermark">Gallery</span>
+        <div className="container mx-auto relative">
           <SectionHeading label="Gallery" title="Moments of Impact" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {galleryStrip.map((img, i) => (
@@ -219,7 +230,7 @@ const Index = () => {
           </div>
           <div className="text-center mt-12">
             <Link to="/gallery">
-              <Button size="lg" className="rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-3.5">
+              <Button size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-3.5">
                 View Full Gallery <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -228,8 +239,9 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="section-padding bg-accent">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden section-padding bg-accent">
+        <span className="watermark">Voices</span>
+        <div className="container mx-auto relative">
           <SectionHeading label="Testimonials" title="Voices of Impact" description="Hear from the people whose lives have been transformed through our programs." />
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((t, i) => (
@@ -266,7 +278,7 @@ const Index = () => {
               <SectionHeading centered={false} label="Stay Updated" title="Latest News & Achievements" />
             </div>
             <Link to="/news" className="md:-mt-8">
-              <Button variant="outline" className="rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold">
+              <Button variant="outline" className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold">
                 View All News <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -314,12 +326,12 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/donate">
-                <Button size="lg" className="rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-8 py-3.5 shadow-elevated">
+                <Button size="lg" className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold px-8 py-3.5 shadow-elevated">
                   Donate Now
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button size="lg" className="rounded-lg bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold px-8 py-3.5">
+                <Button size="lg" className="rounded-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold px-8 py-3.5">
                   Get Involved
                 </Button>
               </Link>
