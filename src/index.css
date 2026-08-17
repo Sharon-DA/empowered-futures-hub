@@ -120,7 +120,7 @@
     box-shadow: var(--shadow-elevated);
   }
   .watermark {
-    @apply pointer-events-none select-none absolute left-1/2 -translate-x-1/2 top-6 font-heading font-bold uppercase whitespace-nowrap text-[18vw] leading-none text-foreground/[0.035];
+    @apply pointer-events-none select-none absolute left-1/2 -translate-x-1/2 top-4 font-heading font-bold uppercase whitespace-nowrap text-[13vw] leading-none text-foreground/[0.028] tracking-tight;
   }
 }
 
