@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
+import PageHero from "@/components/PageHero";
 import { X, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { fallbackGallery } from "@/lib/fallbackContent";
@@ -38,18 +39,7 @@ const Gallery = () => {
 
   return (
     <div>
-      <section className="relative py-36 md:py-44 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={heroBg} alt="Gallery" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 hero-overlay" />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-4">Gallery</h1>
-            <p className="text-background/80 text-lg max-w-2xl mx-auto">See the impact of our programs through photos and moments.</p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero eyebrow="Moments of Impact" title="Gallery" description="See our programmes, outreaches and workshops through the faces and moments that define them." image={heroBg} imageAlt="PYWEI gallery of programme photos" watermark="Gallery" />
 
       <section className="section-padding min-h-[500px]">
         <div className="container mx-auto">

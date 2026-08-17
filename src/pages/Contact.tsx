@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import PageHero from "@/components/PageHero";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,18 +25,7 @@ const Contact = () => {
 
   return (
     <div>
-      <section className="relative py-36 md:py-44 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={heroBg} alt="Contact" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 hero-overlay" />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-4">Contact Us</h1>
-            <p className="text-background/80 text-lg max-w-2xl mx-auto">Have a question, want to volunteer, or partner with us? Reach out!</p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero eyebrow="Get in Touch" title="Contact Us" description="Have a question, want to volunteer, or partner with us? Our team in Makurdi is ready to hear from you." image={heroBg} imageAlt="PYWEI team welcoming visitors" watermark="Contact" />
 
       <section className="section-padding">
         <div className="container mx-auto">
