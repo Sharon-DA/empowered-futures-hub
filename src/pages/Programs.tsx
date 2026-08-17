@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
+import PageHero from "@/components/PageHero";
 import { Users, Heart, GraduationCap, Stethoscope, HandHelping, ArrowRight, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -50,21 +51,11 @@ const Programs = () => {
 
   return (
     <div>
-      <section className="relative py-36 md:py-44 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={heroBg} alt="Programs" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 hero-overlay" />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-4">Our Programs</h1>
-            <p className="text-background/80 text-lg max-w-2xl mx-auto">Explore the initiatives that are transforming lives across communities.</p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero eyebrow="What We Do" title="Our Programs" description="Explore the initiatives transforming lives across Benue State — from digital skills to health outreach." image={heroBg} imageAlt="PYWEI programme participants" watermark="Programs" />
 
-      <section className="section-padding min-h-[400px]">
-        <div className="container mx-auto space-y-20">
+      <section className="relative overflow-hidden section-padding min-h-[400px]">
+        <span className="watermark">Programs</span>
+        <div className="container mx-auto relative space-y-20 md:space-y-28">
           {loading ? (
             <div className="flex justify-center py-20">
               <Loader2 className="w-10 h-10 animate-spin text-primary" />
@@ -76,10 +67,10 @@ const Programs = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "md:direction-rtl" : ""}`}
+                className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center"
               >
                 <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <div className="rounded-3xl overflow-hidden shadow-elevated">
                     <img 
                       src={program.image_url || defaultImages[program.title] || heroBg} 
                       alt={program.title} 
@@ -90,25 +81,25 @@ const Programs = () => {
                     />
                   </div>
                 </div>
-                <div className={i % 2 === 1 ? "md:order-1 text-right" : ""}>
-                  <div className={`flex items-center gap-3 mb-4 ${i % 2 === 1 ? "justify-end" : ""}`}>
+                <div className={i % 2 === 1 ? "md:order-1" : ""}>
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary">
                       {categoryIcons[program.title] || <Users className="w-6 h-6" />}
                     </div>
                     <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">{program.title}</h3>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed mb-6">{program.description}</p>
+                  <p className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg">{program.description}</p>
                   <ul className="space-y-2 mb-6">
                     {program.activities?.map((a: string) => (
-                      <li key={a} className={`flex items-start gap-2 text-foreground ${i % 2 === 1 ? "justify-end" : ""}`}>
-                        {i % 2 === 0 && <ArrowRight className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />}
+                      <li key={a} className="flex items-start gap-3 text-foreground">
+                        <ArrowRight className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
                         <span>{a}</span>
-                        {i % 2 === 1 && <ArrowRight className="w-4 h-4 text-secondary mt-1 flex-shrink-0 rotate-180" />}
                       </li>
                     ))}
                   </ul>
-                  <div className={`inline-block bg-green-light px-4 py-2 rounded-lg`}>
-                    <span className="text-primary font-semibold text-sm">📊 Impact: {program.impact}</span>
+                  <div className="inline-flex items-center gap-2 bg-accent px-5 py-2.5 rounded-full border border-primary/15">
+                    <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
+                    <span className="text-accent-foreground font-semibold text-sm">Impact: {program.impact}</span>
                   </div>
                 </div>
               </motion.div>

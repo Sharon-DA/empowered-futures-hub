@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/SectionHeading";
+import PageHero from "@/components/PageHero";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
@@ -33,21 +34,11 @@ const News = () => {
 
   return (
     <div>
-      <section className="relative py-36 md:py-44 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={heroBg} alt="News" className="w-full h-full object-cover" width={1920} height={1080} />
-          <div className="absolute inset-0 hero-overlay" />
-        </div>
-        <div className="relative container mx-auto px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-4">News & Updates</h1>
-            <p className="text-background/80 text-lg max-w-2xl mx-auto">Stay informed about our latest activities, events, and achievements.</p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero eyebrow="Stay Updated" title="News & Updates" description="Our latest activities, events, partnerships and achievements across the communities we serve." image={heroBg} imageAlt="PYWEI event coverage" watermark="News" />
 
-      <section className="section-padding min-h-[400px]">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden section-padding min-h-[400px]">
+        <span className="watermark">Updates</span>
+        <div className="container mx-auto relative">
           {loading ? (
             <div className="flex justify-center py-20">
               <Loader2 className="w-10 h-10 animate-spin text-primary" />
@@ -61,7 +52,7 @@ const News = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border group"
+                  className="bg-card rounded-3xl overflow-hidden shadow-card border border-border/70 group hover:shadow-elevated hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="h-52 overflow-hidden">
                     <img 
@@ -75,7 +66,7 @@ const News = () => {
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-xs bg-orange-light text-secondary font-semibold px-3 py-1 rounded-full">{post.category}</span>
+                      <span className="text-xs bg-secondary text-secondary-foreground font-semibold px-3 py-1 rounded-full">{post.category}</span>
                       <span className="text-xs text-muted-foreground">
                         {post.created_at ? format(new Date(post.created_at), "MMMM dd, yyyy") : "Recent"}
                       </span>

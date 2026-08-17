@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Heart, CreditCard, QrCode, Building2 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
+import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/photo-hero.jpg";
 
@@ -15,21 +16,7 @@ const donationImpact = [
 
 const Donate = () => (
   <div>
-    <section className="relative py-36 md:py-44 overflow-hidden">
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="Supporters of Prime Youths & Women Empowerment Initiative" className="w-full h-full object-cover" width={1920} height={1080} />
-        <div className="absolute inset-0 hero-overlay" />
-      </div>
-      <div className="relative container mx-auto px-4 text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <span className="inline-flex items-center gap-3 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-secondary mb-5">
-            <span className="h-px w-8 bg-secondary/60" /> Give Today <span className="h-px w-8 bg-secondary/60" />
-          </span>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-background mb-5 tracking-tight">Support Our Work</h1>
-          <p className="text-background/85 text-lg max-w-2xl mx-auto leading-relaxed">Every donation, no matter the size, creates ripples of change in our communities.</p>
-        </motion.div>
-      </div>
-    </section>
+    <PageHero eyebrow="Give Today" title="Support Our Work" description="Every donation, no matter the size, creates ripples of change across the communities we serve." image={heroBg} imageAlt="Supporters of Prime Youths & Women Empowerment Initiative" watermark="Donate" />
 
 
     {/* Impact of Donations */}
