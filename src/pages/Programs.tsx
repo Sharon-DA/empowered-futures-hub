@@ -82,13 +82,13 @@ const Programs = () => {
                   </div>
                 </div>
                 <div className={i % 2 === 1 ? "md:order-1 text-right" : ""}>
-                  <div className={`flex items-center gap-3 mb-4 ${i % 2 === 1 ? "justify-end" : ""}`}>
+                  <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary">
                       {categoryIcons[program.title] || <Users className="w-6 h-6" />}
                     </div>
                     <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">{program.title}</h3>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed mb-6">{program.description}</p>
+                  <p className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg">{program.description}</p>
                   <ul className="space-y-2 mb-6">
                     {program.activities?.map((a: string) => (
                       <li key={a} className="flex items-start gap-3 text-foreground">
