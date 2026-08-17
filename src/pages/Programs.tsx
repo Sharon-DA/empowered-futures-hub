@@ -81,7 +81,7 @@ const Programs = () => {
                     />
                   </div>
                 </div>
-                <div className={i % 2 === 1 ? "md:order-1 text-right" : ""}>
+                <div className={i % 2 === 1 ? "md:order-1" : ""}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary">
                       {categoryIcons[program.title] || <Users className="w-6 h-6" />}
