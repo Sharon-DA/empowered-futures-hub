@@ -66,7 +66,7 @@ const News = () => {
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-xs bg-orange-light text-secondary font-semibold px-3 py-1 rounded-full">{post.category}</span>
+                      <span className="text-xs bg-secondary text-secondary-foreground font-semibold px-3 py-1 rounded-full">{post.category}</span>
                       <span className="text-xs text-muted-foreground">
                         {post.created_at ? format(new Date(post.created_at), "MMMM dd, yyyy") : "Recent"}
                       </span>

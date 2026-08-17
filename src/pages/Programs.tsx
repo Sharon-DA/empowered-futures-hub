@@ -98,8 +98,9 @@ const Programs = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className={`inline-block bg-green-light px-4 py-2 rounded-lg`}>
-                    <span className="text-primary font-semibold text-sm">📊 Impact: {program.impact}</span>
+                  <div className="inline-flex items-center gap-2 bg-accent px-5 py-2.5 rounded-full border border-primary/15">
+                    <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
+                    <span className="text-accent-foreground font-semibold text-sm">Impact: {program.impact}</span>
                   </div>
                 </div>
               </motion.div>
