@@ -67,7 +67,7 @@ const Programs = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "md:direction-rtl" : ""}`}
+                className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center"
               >
                 <div className={i % 2 === 1 ? "md:order-2" : ""}>
                   <div className="rounded-3xl overflow-hidden shadow-elevated">
@@ -91,10 +91,9 @@ const Programs = () => {
                   <p className="text-muted-foreground leading-relaxed mb-6">{program.description}</p>
                   <ul className="space-y-2 mb-6">
                     {program.activities?.map((a: string) => (
-                      <li key={a} className={`flex items-start gap-2 text-foreground ${i % 2 === 1 ? "justify-end" : ""}`}>
-                        {i % 2 === 0 && <ArrowRight className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />}
+                      <li key={a} className="flex items-start gap-3 text-foreground">
+                        <ArrowRight className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
                         <span>{a}</span>
-                        {i % 2 === 1 && <ArrowRight className="w-4 h-4 text-secondary mt-1 flex-shrink-0 rotate-180" />}
                       </li>
                     ))}
                   </ul>
