@@ -27,8 +27,9 @@ const Contact = () => {
     <div>
       <PageHero eyebrow="Get in Touch" title="Contact Us" description="Have a question, want to volunteer, or partner with us? Our team in Makurdi is ready to hear from you." image={heroBg} imageAlt="PYWEI team welcoming visitors" watermark="Contact" />
 
-      <section className="section-padding">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden section-padding">
+        <span className="watermark">Contact</span>
+        <div className="container mx-auto relative">
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-6">Get in Touch</h2>

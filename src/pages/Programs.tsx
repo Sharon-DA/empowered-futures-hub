@@ -53,8 +53,9 @@ const Programs = () => {
     <div>
       <PageHero eyebrow="What We Do" title="Our Programs" description="Explore the initiatives transforming lives across Benue State — from digital skills to health outreach." image={heroBg} imageAlt="PYWEI programme participants" watermark="Programs" />
 
-      <section className="section-padding min-h-[400px]">
-        <div className="container mx-auto space-y-20">
+      <section className="relative overflow-hidden section-padding min-h-[400px]">
+        <span className="watermark">Programs</span>
+        <div className="container mx-auto relative space-y-20 md:space-y-28">
           {loading ? (
             <div className="flex justify-center py-20">
               <Loader2 className="w-10 h-10 animate-spin text-primary" />
@@ -69,7 +70,7 @@ const Programs = () => {
                 className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "md:direction-rtl" : ""}`}
               >
                 <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  <div className="rounded-2xl overflow-hidden shadow-lg">
+                  <div className="rounded-3xl overflow-hidden shadow-elevated">
                     <img 
                       src={program.image_url || defaultImages[program.title] || heroBg} 
                       alt={program.title} 

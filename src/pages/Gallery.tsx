@@ -41,8 +41,9 @@ const Gallery = () => {
     <div>
       <PageHero eyebrow="Moments of Impact" title="Gallery" description="See our programmes, outreaches and workshops through the faces and moments that define them." image={heroBg} imageAlt="PYWEI gallery of programme photos" watermark="Gallery" />
 
-      <section className="section-padding min-h-[500px]">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden section-padding min-h-[500px]">
+        <span className="watermark">Gallery</span>
+        <div className="container mx-auto relative">
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map((cat) => (
               <button
@@ -73,7 +74,7 @@ const Gallery = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   onClick={() => setLightboxImage(item.image_url)}
-                  className="cursor-pointer rounded-xl overflow-hidden group aspect-[4/3]"
+                  className="cursor-pointer rounded-2xl overflow-hidden group aspect-[4/3] shadow-card"
                 >
                   <img src={item.image_url} alt={item.title} title={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" width={800} height={600} />
                 </motion.div>

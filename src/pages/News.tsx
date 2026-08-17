@@ -36,8 +36,9 @@ const News = () => {
     <div>
       <PageHero eyebrow="Stay Updated" title="News & Updates" description="Our latest activities, events, partnerships and achievements across the communities we serve." image={heroBg} imageAlt="PYWEI event coverage" watermark="News" />
 
-      <section className="section-padding min-h-[400px]">
-        <div className="container mx-auto">
+      <section className="relative overflow-hidden section-padding min-h-[400px]">
+        <span className="watermark">Updates</span>
+        <div className="container mx-auto relative">
           {loading ? (
             <div className="flex justify-center py-20">
               <Loader2 className="w-10 h-10 animate-spin text-primary" />
@@ -51,7 +52,7 @@ const News = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border group"
+                  className="bg-card rounded-3xl overflow-hidden shadow-card border border-border/70 group hover:shadow-elevated hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="h-52 overflow-hidden">
                     <img 

@@ -24,15 +24,16 @@ const About = () => (
       <PageHero eyebrow="Who We Are" title="About Us" description="A women and youth-led, community-driven NGO based in Makurdi, Benue State — building dignity, skills and opportunity." image={heroBg} imageAlt="PYWEI team at a community engagement in Makurdi" watermark="About" />
 
     {/* Vision & Mission */}
-    <section className="section-padding">
-      <div className="container mx-auto">
+    <section className="relative overflow-hidden section-padding">
+      <span className="watermark">Mission</span>
+      <div className="container mx-auto relative">
         <div className="grid md:grid-cols-2 gap-8">
           {[
             { icon: <Eye className="w-8 h-8" />, title: "Our Vision", text: "A world where every youth and woman has the opportunity, skills, and support to reach their full potential and contribute meaningfully to their communities." },
             { icon: <Target className="w-8 h-8" />, title: "Our Mission", text: "To empower youths and women through education, vocational training, health awareness, and community development programs that create lasting, sustainable impact." },
           ].map((item, i) => (
             <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
-              className="bg-card rounded-2xl p-8 md:p-10 border border-border shadow-sm">
+              className="bg-card rounded-3xl p-8 md:p-10 border border-border/70 shadow-card hover:shadow-elevated transition-shadow duration-300">
               <div className="w-16 h-16 rounded-2xl bg-accent flex items-center justify-center text-primary mb-6">{item.icon}</div>
               <h3 className="font-heading text-2xl font-bold text-foreground mb-4">{item.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-lg">{item.text}</p>
@@ -43,8 +44,9 @@ const About = () => (
     </section>
 
     {/* Timeline */}
-    <section className="section-padding bg-accent">
-      <div className="container mx-auto">
+    <section className="relative overflow-hidden section-padding bg-accent">
+      <span className="watermark">Journey</span>
+      <div className="container mx-auto relative">
         <SectionHeading label="Our Journey" title="Milestones & Achievements" />
         <div className="max-w-3xl mx-auto space-y-0">
           {milestones.map((m, i) => (
@@ -68,13 +70,14 @@ const About = () => (
     </section>
 
     {/* Team */}
-    <section className="section-padding">
-      <div className="container mx-auto">
+    <section className="relative overflow-hidden section-padding bg-card">
+      <span className="watermark">Our Team</span>
+      <div className="container mx-auto relative">
         <SectionHeading label="Our Team" title="Meet the People Behind the Mission" />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {team.map((member, i) => (
             <motion.div key={member.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="bg-card rounded-2xl p-6 border border-border shadow-sm text-center">
+              className="bg-card rounded-3xl p-7 border border-border/70 shadow-card text-center hover:shadow-elevated hover:-translate-y-1 transition-all duration-300">
               <div className="w-20 h-20 rounded-full bg-accent mx-auto mb-4 flex items-center justify-center">
                 <Users className="w-8 h-8 text-primary" />
               </div>
