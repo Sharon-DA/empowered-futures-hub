@@ -55,6 +55,12 @@ export default {
           DEFAULT: "hsl(var(--warm))",
           dark: "hsl(var(--warm-dark))",
         },
+        clay: {
+          DEFAULT: "hsl(var(--clay))",
+          deep: "hsl(var(--clay-deep))",
+        },
+        sage: "hsl(var(--sage))",
+        forest: "hsl(var(--forest))",
         "green-light": "hsl(var(--green-light))",
         "orange-light": "hsl(var(--orange-light))",
         sidebar: {
