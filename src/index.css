@@ -6,35 +6,35 @@
 
 @layer base {
   :root {
-    --background: 40 33% 98%;
-    --foreground: 150 30% 10%;
+    --background: 37 43% 93%;
+    --foreground: 130 16% 13%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 150 30% 10%;
+    --card: 36 50% 97%;
+    --card-foreground: 130 16% 13%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 150 30% 10%;
+    --popover: 36 50% 97%;
+    --popover-foreground: 130 16% 13%;
 
-    --primary: 145 63% 32%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 134 18% 30%;
+    --primary-foreground: 37 43% 96%;
 
-    --secondary: 30 95% 55%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 13 47% 53%;
+    --secondary-foreground: 36 50% 97%;
 
-    --muted: 40 20% 94%;
-    --muted-foreground: 150 10% 40%;
+    --muted: 37 30% 88%;
+    --muted-foreground: 130 9% 36%;
 
-    --accent: 145 40% 92%;
-    --accent-foreground: 145 63% 25%;
+    --accent: 105 22% 86%;
+    --accent-foreground: 134 22% 22%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 37 43% 96%;
 
-    --border: 40 15% 88%;
-    --input: 40 15% 88%;
-    --ring: 145 63% 32%;
+    --border: 35 22% 83%;
+    --input: 35 22% 83%;
+    --ring: 134 18% 30%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -45,30 +45,35 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --warm: 40 33% 98%;
-    --warm-dark: 40 20% 94%;
-    --green-light: 145 40% 92%;
-    --orange-light: 30 100% 95%;
+    --warm: 37 43% 93%;
+    --warm-dark: 37 30% 88%;
+    --green-light: 105 22% 86%;
+    --orange-light: 20 55% 92%;
+    --clay: 13 47% 53%;
+    --clay-deep: 13 42% 38%;
+    --sage: 105 20% 56%;
+    --forest: 134 22% 20%;
 
-    --gradient-hero: linear-gradient(100deg, hsl(150 45% 8% / 0.92) 0%, hsl(150 40% 12% / 0.75) 45%, hsl(30 60% 20% / 0.45) 100%);
-    --gradient-brand: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(160 55% 24%) 100%);
-    --shadow-card: 0 1px 2px hsl(150 30% 10% / 0.04), 0 8px 24px -12px hsl(150 30% 10% / 0.12);
-    --shadow-elevated: 0 2px 4px hsl(150 30% 10% / 0.05), 0 24px 48px -20px hsl(150 30% 10% / 0.22);
+    --gradient-hero: linear-gradient(105deg, hsl(134 30% 9% / 0.93) 0%, hsl(134 25% 14% / 0.78) 42%, hsl(13 45% 24% / 0.5) 100%);
+    --gradient-brand: linear-gradient(135deg, hsl(var(--forest)) 0%, hsl(134 18% 30%) 55%, hsl(13 42% 34%) 100%);
+    --gradient-clay: linear-gradient(135deg, hsl(13 47% 53%) 0%, hsl(20 52% 62%) 100%);
+    --shadow-card: 0 1px 2px hsl(130 20% 12% / 0.05), 0 10px 28px -14px hsl(130 20% 12% / 0.16);
+    --shadow-elevated: 0 2px 6px hsl(130 20% 12% / 0.06), 0 28px 56px -22px hsl(130 20% 12% / 0.26);
   }
 
 
   .dark {
-    --background: 150 30% 6%;
+    --background: 134 22% 7%;
     --foreground: 40 33% 95%;
     --card: 150 25% 10%;
     --card-foreground: 40 33% 95%;
     --popover: 150 25% 10%;
     --popover-foreground: 40 33% 95%;
-    --primary: 145 63% 42%;
+    --primary: 105 20% 56%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 30 95% 55%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 150 15% 15%;
+    --secondary: 13 55% 58%;
+    --secondary-foreground: 36 50% 97%;
+    --muted: 134 12% 15%;
     --muted-foreground: 40 15% 65%;
     --accent: 145 30% 18%;
     --accent-foreground: 145 40% 85%;
@@ -118,6 +123,28 @@
   }
   .shadow-elevated {
     box-shadow: var(--shadow-elevated);
+  }
+  .bg-clay-gradient {
+    background-image: var(--gradient-clay);
+  }
+  .paper-texture {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.045) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .frame-offset {
+    position: relative;
+  }
+  .frame-offset::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translate(1.25rem, 1.25rem);
+    border: 1px solid hsl(var(--secondary) / 0.55);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  .rule-label {
+    @apply inline-flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.28em];
   }
   .watermark {
     @apply pointer-events-none select-none absolute left-1/2 -translate-x-1/2 top-4 font-heading font-bold uppercase whitespace-nowrap text-[13vw] leading-none text-foreground/[0.028] tracking-tight;
