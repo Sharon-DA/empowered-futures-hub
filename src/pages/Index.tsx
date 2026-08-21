@@ -144,7 +144,7 @@ const Index = () => {
 
       {/* ── Who We Are: broken grid ─────────────────────────────── */}
       <section className="relative section-padding pt-32 md:pt-40">
-        <span className="watermark">About</span>
+        <span className="watermark top-24">About</span>
         <div className="container mx-auto relative grid lg:grid-cols-[0.95fr_1.05fr] gap-14 lg:gap-20 items-center">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative h-[26rem] md:h-[32rem] order-2 lg:order-1">
             <img
