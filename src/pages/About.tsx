@@ -4,8 +4,6 @@ import PageHero from "@/components/PageHero";
 import { Target, Eye, Users, Award, Calendar } from "lucide-react";
 import heroBg from "@/assets/photo-hero.jpg";
 import photoWomen from "@/assets/photo-women.jpg";
-import photoYouth from "@/assets/photo-youth.jpg";
-import photoCommunity from "@/assets/photo-community.jpg";
 import photoGirlRise from "@/assets/photo-girlrise.jpg";
 
 const milestones = [
