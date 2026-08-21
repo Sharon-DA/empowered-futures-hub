@@ -16,7 +16,7 @@ const PageHero = ({ eyebrow, title, description, image, imageAlt, watermark }: P
     <div className="absolute inset-0 paper-texture opacity-40" />
 
     {watermark && (
-      <span className="pointer-events-none select-none absolute -left-4 bottom-0 font-heading font-bold uppercase whitespace-nowrap text-[18vw] leading-[0.8] text-background/[0.06]">
+      <span className="pointer-events-none select-none absolute left-4 bottom-0 font-heading font-bold uppercase whitespace-nowrap text-[13vw] leading-[0.75] text-background/[0.045]">
         {watermark}
       </span>
     )}

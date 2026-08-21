@@ -144,7 +144,7 @@ const Index = () => {
 
       {/* ── Who We Are: broken grid ─────────────────────────────── */}
       <section className="relative section-padding pt-32 md:pt-40">
-        <span className="watermark">About</span>
+        <span className="watermark top-24">About</span>
         <div className="container mx-auto relative grid lg:grid-cols-[0.95fr_1.05fr] gap-14 lg:gap-20 items-center">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative h-[26rem] md:h-[32rem] order-2 lg:order-1">
             <img
@@ -260,14 +260,13 @@ const Index = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 md:auto-rows-[11rem]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 md:grid-rows-2 md:h-[34rem]">
             {[
               { img: photoCommunity, span: "md:col-span-2 md:row-span-2" },
               { img: photoEducation, span: "" },
               { img: photoOutreach, span: "md:row-span-2" },
               { img: photoYouth, span: "" },
-              { img: photoWomen, span: "md:col-span-2" },
-              { img: photoHealth, span: "" },
+              { img: photoWomen, span: "" },
               { img: photoGirlRise, span: "" },
             ].map((tile, i) => (
               <motion.div
@@ -276,7 +275,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: (i % 4) * 0.06 }}
-                className={`overflow-hidden rounded-[1.5rem] h-40 md:h-auto ${tile.span}`}
+                className={`overflow-hidden rounded-[1.5rem] h-40 md:h-full ${tile.span}`}
               >
                 <img src={tile.img} alt={`PYWEI programme moment ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-[900ms]" loading="lazy" />
               </motion.div>

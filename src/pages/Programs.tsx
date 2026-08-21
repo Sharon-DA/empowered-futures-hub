@@ -54,7 +54,6 @@ const Programs = () => {
       <PageHero eyebrow="What We Do" title="Our Programs" description="Explore the initiatives transforming lives across Benue State — from digital skills to health outreach." image={heroBg} imageAlt="PYWEI programme participants" watermark="Programs" />
 
       <section className="relative overflow-hidden section-padding min-h-[400px]">
-        <span className="watermark">Programs</span>
         <div className="container mx-auto relative space-y-20 md:space-y-28">
           {loading ? (
             <div className="flex justify-center py-20">
@@ -67,29 +66,32 @@ const Programs = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center"
+                className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center"
               >
-                <div className={i % 2 === 1 ? "md:order-2" : ""}>
-                  <div className="rounded-3xl overflow-hidden shadow-elevated">
-                    <img 
-                      src={program.image_url || defaultImages[program.title] || heroBg} 
-                      alt={program.title} 
-                      className="w-full h-72 md:h-96 object-cover" 
-                      loading="lazy" 
-                      width={800} 
-                      height={600} 
+                <div className={`relative ${i % 2 === 1 ? "md:order-2" : ""}`}>
+                  <span className="absolute -top-8 -left-2 md:-left-6 font-heading text-[5rem] md:text-[7rem] leading-none font-bold text-secondary/15 select-none pointer-events-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="frame-offset rounded-[2rem]">
+                    <img
+                      src={program.image_url || defaultImages[program.title] || heroBg}
+                      alt={program.title}
+                      className="relative z-10 w-full h-72 md:h-[26rem] object-cover rounded-[2rem] shadow-elevated"
+                      loading="lazy"
+                      width={800}
+                      height={600}
                     />
                   </div>
                 </div>
                 <div className={i % 2 === 1 ? "md:order-1" : ""}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center text-primary">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center text-primary">
                       {categoryIcons[program.title] || <Users className="w-6 h-6" />}
                     </div>
-                    <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">{program.title}</h3>
+                    <h3 className="font-heading text-2xl md:text-[2rem] font-bold text-foreground leading-tight">{program.title}</h3>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg">{program.description}</p>
-                  <ul className="space-y-2 mb-6">
+                  <p className="text-muted-foreground leading-relaxed mb-7 text-base md:text-lg border-l-2 border-secondary/40 pl-5">{program.description}</p>
+                  <ul className="space-y-2.5 mb-7">
                     {program.activities?.map((a: string) => (
                       <li key={a} className="flex items-start gap-3 text-foreground">
                         <ArrowRight className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
@@ -97,7 +99,7 @@ const Programs = () => {
                       </li>
                     ))}
                   </ul>
-                  <div className="inline-flex items-center gap-2 bg-accent px-5 py-2.5 rounded-full border border-primary/15">
+                  <div className="inline-flex items-center gap-2 bg-accent px-5 py-2.5 rounded-full">
                     <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
                     <span className="text-accent-foreground font-semibold text-sm">Impact: {program.impact}</span>
                   </div>
@@ -108,10 +110,11 @@ const Programs = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-primary">
-        <div className="container mx-auto text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-6">Want to Support a Program?</h2>
-          <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto mb-8">Your donation directly funds these programs and changes lives.</p>
+      <section className="relative section-padding bg-forest overflow-hidden">
+        <div className="absolute inset-0 paper-texture opacity-30" />
+        <div className="container mx-auto relative text-center">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-background mb-6">Want to support a <span className="italic text-secondary">program</span>?</h2>
+          <p className="text-background/75 text-lg max-w-xl mx-auto mb-9">Your donation directly funds these programs and changes lives.</p>
           <Link to="/donate"><Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold px-8 py-3.5">Donate Now</Button></Link>
         </div>
       </section>

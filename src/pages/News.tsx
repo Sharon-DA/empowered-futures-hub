@@ -37,14 +37,13 @@ const News = () => {
       <PageHero eyebrow="Stay Updated" title="News & Updates" description="Our latest activities, events, partnerships and achievements across the communities we serve." image={heroBg} imageAlt="PYWEI event coverage" watermark="News" />
 
       <section className="relative overflow-hidden section-padding min-h-[400px]">
-        <span className="watermark">Updates</span>
         <div className="container mx-auto relative">
           {loading ? (
             <div className="flex justify-center py-20">
               <Loader2 className="w-10 h-10 animate-spin text-primary" />
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-8">
               {posts.map((post, i) => (
                 <motion.article
                   key={post.id || post.title}
@@ -52,9 +51,11 @@ const News = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-card rounded-3xl overflow-hidden shadow-card border border-border/70 group hover:shadow-elevated hover:-translate-y-1 transition-all duration-300"
+                  className={`bg-card rounded-[1.75rem] overflow-hidden shadow-card border border-border group hover:shadow-elevated transition-all duration-500 ${
+                    i === 0 ? "md:col-span-2 lg:row-span-2" : ""
+                  } ${i % 3 === 1 ? "lg:translate-y-8" : ""}`}
                 >
-                  <div className="h-52 overflow-hidden">
+                  <div className={`overflow-hidden ${i === 0 ? "h-64 md:h-80" : "h-52"}`}>
                     <img 
                       src={post.image_url || programYouth} 
                       alt={post.title} 
@@ -71,7 +72,7 @@ const News = () => {
                         {post.created_at ? format(new Date(post.created_at), "MMMM dd, yyyy") : "Recent"}
                       </span>
                     </div>
-                    <h3 className="font-heading text-xl font-bold text-foreground mb-2">{post.title}</h3>
+                    <h3 className={`font-heading font-bold text-foreground mb-2 leading-snug ${i === 0 ? "text-2xl md:text-3xl" : "text-xl"}`}>{post.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
                     <button className="text-primary font-semibold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
                       Read More <ArrowRight className="w-4 h-4" />
