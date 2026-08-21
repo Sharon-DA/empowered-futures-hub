@@ -42,7 +42,6 @@ const Gallery = () => {
       <PageHero eyebrow="Moments of Impact" title="Gallery" description="See our programmes, outreaches and workshops through the faces and moments that define them." image={heroBg} imageAlt="PYWEI gallery of programme photos" watermark="Gallery" />
 
       <section className="relative overflow-hidden section-padding min-h-[500px]">
-        <span className="watermark">Gallery</span>
         <div className="container mx-auto relative">
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map((cat) => (

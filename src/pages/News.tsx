@@ -37,7 +37,6 @@ const News = () => {
       <PageHero eyebrow="Stay Updated" title="News & Updates" description="Our latest activities, events, partnerships and achievements across the communities we serve." image={heroBg} imageAlt="PYWEI event coverage" watermark="News" />
 
       <section className="relative overflow-hidden section-padding min-h-[400px]">
-        <span className="watermark">Updates</span>
         <div className="container mx-auto relative">
           {loading ? (
             <div className="flex justify-center py-20">

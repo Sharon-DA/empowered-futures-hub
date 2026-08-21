@@ -54,7 +54,6 @@ const Programs = () => {
       <PageHero eyebrow="What We Do" title="Our Programs" description="Explore the initiatives transforming lives across Benue State — from digital skills to health outreach." image={heroBg} imageAlt="PYWEI programme participants" watermark="Programs" />
 
       <section className="relative overflow-hidden section-padding min-h-[400px]">
-        <span className="watermark">Programs</span>
         <div className="container mx-auto relative space-y-20 md:space-y-28">
           {loading ? (
             <div className="flex justify-center py-20">
