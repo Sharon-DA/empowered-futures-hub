@@ -111,10 +111,11 @@ const Programs = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-primary">
-        <div className="container mx-auto text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-6">Want to Support a Program?</h2>
-          <p className="text-primary-foreground/80 text-lg max-w-xl mx-auto mb-8">Your donation directly funds these programs and changes lives.</p>
+      <section className="relative section-padding bg-forest overflow-hidden">
+        <div className="absolute inset-0 paper-texture opacity-30" />
+        <div className="container mx-auto relative text-center">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-background mb-6">Want to support a <span className="italic text-secondary">program</span>?</h2>
+          <p className="text-background/75 text-lg max-w-xl mx-auto mb-9">Your donation directly funds these programs and changes lives.</p>
           <Link to="/donate"><Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-full font-semibold px-8 py-3.5">Donate Now</Button></Link>
         </div>
       </section>
