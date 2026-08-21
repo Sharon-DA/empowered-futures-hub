@@ -65,7 +65,7 @@ const Gallery = () => {
               <Loader2 className="w-10 h-10 animate-spin text-primary" />
             </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 md:auto-rows-[12rem]">
               {filtered.map((item, i) => (
                 <motion.div
                   key={`${item.title}-${i}`}
@@ -74,7 +74,9 @@ const Gallery = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   onClick={() => setLightboxImage(item.image_url)}
-                  className="cursor-pointer rounded-2xl overflow-hidden group aspect-[4/3] shadow-card"
+                  className={`cursor-pointer rounded-[1.5rem] overflow-hidden group shadow-card h-40 md:h-auto ${
+                    i % 7 === 0 ? "md:col-span-2 md:row-span-2" : i % 5 === 0 ? "md:row-span-2" : i % 6 === 0 ? "md:col-span-2" : ""
+                  }`}
                 >
                   <img src={item.image_url} alt={item.title} title={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" width={800} height={600} />
                 </motion.div>
