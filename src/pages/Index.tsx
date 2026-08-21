@@ -260,14 +260,13 @@ const Index = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 md:auto-rows-[11rem]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 md:grid-rows-2 md:h-[34rem]">
             {[
               { img: photoCommunity, span: "md:col-span-2 md:row-span-2" },
               { img: photoEducation, span: "" },
               { img: photoOutreach, span: "md:row-span-2" },
               { img: photoYouth, span: "" },
-              { img: photoWomen, span: "md:col-span-2" },
-              { img: photoHealth, span: "" },
+              { img: photoWomen, span: "" },
               { img: photoGirlRise, span: "" },
             ].map((tile, i) => (
               <motion.div
@@ -276,7 +275,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: (i % 4) * 0.06 }}
-                className={`overflow-hidden rounded-[1.5rem] h-40 md:h-auto ${tile.span}`}
+                className={`overflow-hidden rounded-[1.5rem] h-40 md:h-full ${tile.span}`}
               >
                 <img src={tile.img} alt={`PYWEI programme moment ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-[900ms]" loading="lazy" />
               </motion.div>
