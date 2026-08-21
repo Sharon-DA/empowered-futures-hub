@@ -73,8 +73,7 @@ const News = () => {
                         {post.created_at ? format(new Date(post.created_at), "MMMM dd, yyyy") : "Recent"}
                       </span>
                     </div>
-                    <h3 className={`font-heading font-bold text-foreground mb-2 ${i === 0 ? "text-2xl md:text-3xl" : "text-xl"}`} data-x="1" hidden={false} style={{}}>{post.title}</h3>
-                    <h3 className="hidden font-heading text-xl font-bold text-foreground mb-2">{post.title}</h3>
+                    <h3 className={`font-heading font-bold text-foreground mb-2 leading-snug ${i === 0 ? "text-2xl md:text-3xl" : "text-xl"}`}>{post.title}</h3>
                     <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
                     <button className="text-primary font-semibold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
                       Read More <ArrowRight className="w-4 h-4" />
